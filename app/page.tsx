@@ -1,65 +1,467 @@
+import Footer from "@/components/Footer";
+import ServiceCard from "@/components/ServiceCard";
 import Image from "next/image";
+import { ArrowBigDown, FileDown, Rocket, RocketIcon } from "lucide-react";
+import {
+  DartIcon,
+  FigmaIcon,
+  FlutterIcon,
+  HiveIcon,
+  LaravelIcon,
+  MySqlIcon,
+  NextIcon,
+  PhpIcon,
+  TailWindIcon,
+} from "@/components/TechStackIcon";
+import ProjectCard from "@/components/ProjectCard";
+import ExperienceCard from "@/components/ExperienceCard";
 
 export default function Home() {
+  const skills = [
+    {
+      name: "Flutter",
+      level: "Advance",
+      logo: (
+        <FlutterIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#61DAFB]" />
+      ),
+      color: "#61DAFB",
+    },
+    {
+      name: "Laravel",
+      level: "Intermediate",
+      logo: (
+        <LaravelIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
+      ),
+      color: "#FF2D20",
+    },
+    {
+      name: "Next.js ",
+      level: "Advance",
+      logo: (
+        <NextIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+      ),
+      color: "#FFFFFF",
+    },
+    {
+      name: "Dart",
+      level: "Advance",
+      logo: (
+        <DartIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#0175C2]" />
+      ),
+      color: "#0175C2",
+    },
+    {
+      name: "PHP",
+      level: "Intermediate",
+      logo: (
+        <PhpIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#777BB4]" />
+      ),
+      color: "#777BB4",
+    },
+    {
+      name: "Tailwind CSS",
+      level: "Advance",
+      logo: (
+        <TailWindIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+      ),
+      color: "#06B6D4",
+    },
+  ];
+
+  const projects = [
+    {
+      category: "Mobile Development",
+      title: "Conversation Card",
+      description:
+        "An interactive chat card application that presents a variety of unique question decks with genres ranging from romance and hobbies to deep talk. In this solo project, I handled the entire front-end cycle, from UI design and slicing to API integration, which allows users to log in and create their own custom decks.",
+      imageSrc: "/preview_conversation.png",
+      downloadLink: "/#",
+      isDownload: true,
+      downloadText: "Download App",
+      techStacks: [
+        {
+          name: "Flutter",
+          logo: (
+            <FlutterIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+          ),
+        },
+        {
+          name: "Laravel",
+          logo: (
+            <LaravelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
+          ),
+        },
+        {
+          name: "Figma",
+          logo: (
+            <FigmaIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#F24E1E]" />
+          ),
+        },
+        {
+          name: "MySQL",
+          logo: (
+            <MySqlIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#4479A1]" />
+          ),
+        },
+      ],
+    },
+    {
+      category: "Mobile Development",
+      title: "RUS Consign",
+      description:
+        "A comprehensive marketplace platform specifically designed to facilitate the sale of physical and digital products created by students. As a Front-End Developer, I played a major role in leading the visual aspects, from designing the interface in Figma, slicing the code to Flutter, to ensuring the smooth integration of the API with the Laravel backend.",
+      imageSrc: "/RusConsign.png",
+      downloadLink: "https://github.com/altantheprodigy/RusConsign.git",
+      isDownload: false,
+      downloadText: "View App",
+      techStacks: [
+        {
+          name: "Flutter",
+          logo: (
+            <FlutterIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+          ),
+        },
+        {
+          name: "Laravel",
+          logo: (
+            <LaravelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
+          ),
+        },
+        {
+          name: "Figma",
+          logo: (
+            <FigmaIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#F24E1E]" />
+          ),
+        },
+        {
+          name: "MySQL",
+          logo: (
+            <MySqlIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#4479A1]" />
+          ),
+        },
+      ],
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    // Outer container: Hapus padding dan gap di sini agar Hero bisa full-screen
+    <div className="bg-hitam-utama min-h-screen font-sans text-black selection:bg-gray-200">
+      {/* 1. HERO SECTION (Memenuhi Layar 100vh) */}
+      <section className="flex h-screen flex-col items-center justify-center text-center">
+        <h1 className="font-utama text-3xl font-bold tracking-tighter text-white md:text-5xl">
+          Hi, I'm <span className="text-gradient-altan">Altan Putra</span>
+        </h1>
+        <p className="mt-4 text-xl font-light text-zinc-400 md:text-2xl">
+          <span className="text-brand-blue font-medium">
+            Mobile Development
+          </span>
+          <span className="mx-4 text-zinc-600">|</span>
+          <span className="text-brand-green font-medium">Web Development</span>
+        </p>
+        <a
+          href="#about"
+          // Class dasar tombol tetap sama seperti keinginanmu
+          className="group bg-brand-blue/10 text-brand-blue hover:bg-brand-blue relative mt-5 flex w-fit items-center gap-2 overflow-hidden rounded-2xl px-5 py-5 text-[16px] font-semibold transition-all duration-300 hover:text-white active:scale-95"
+        >
+          {/* === 1. Animasi Cahaya Lewat Berwarna Gradasi === */}
+          <div
+            // KITA GUNAKAN GRADIENT VAR DISINI MELALUI INLINE STYLE
+            style={{ backgroundImage: "var(--bg-gradient-altan)" }}
+            // Penjelasan Class:
+            // absolute inset-0 : Agar memenuhi ukuran tombol
+            // -translate-x-full : Posisi awal di luar sebelah kiri
+            // opacity-70 : PENTING! Agar warnanya agak transparan seperti cahaya/kilatan, tidak blok solid. (Bisa diatur 50-90)
+            // transition-transform duration-700 : Durasi sedikit diperlambat agar warnanya lebih terlihat saat lewat
+            // group-hover:translate-x-full : Saat dihover, bergerak ke luar sebelah kanan
+            className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+          ></div>
+
+          <span className="relative z-10">Get Start</span>
+
+          {/* 2. Animasi Ikon (Bounce & Slide) */}
+          <RocketIcon
+            size={18}
+            className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
+          />
+        </a>
+      </section>
+
+      {/* 2. MAIN CONTENT WRAPPER (Mengembalikan padding & gap asli untuk sisa konten) */}
+      <div className="flex flex-col gap-15 px-36 py-20 pb-32">
+        <div id="about" className="flex flex-row items-start gap-12">
+          {/* Avatar Section */}
+          <div className="group relative h-40 w-40 shrink-0">
+            <div className="from-brand-green to-brand-blue absolute -inset-1 rounded-full bg-gradient-to-br opacity-25 blur transition duration-1000 group-hover:opacity-50"></div>
+
+            <div className="from-brand-green via-brand-blue to-brand-blue relative h-full w-full rounded-full bg-gradient-to-br p-[3px]">
+              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#272727]">
+                <Image
+                  src="/altan-seragam.jpeg"
+                  alt="Altan Putra"
+                  width={160}
+                  height={160}
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Biography Section */}
+          <div className="flex flex-1 flex-col gap-4">
+            <div className="flex flex-col gap-1">
+              <h2 className="text-[32px] font-bold tracking-tight text-white">
+                About Me
+              </h2>
+              <div className="bg-brand-green h-1 w-12 rounded-full"></div>
+            </div>
+
+            <p className="max-w-2xl text-[18px] leading-relaxed font-light text-zinc-300">
+              A dedicated{" "}
+              <span className="font-medium text-white">Computer Science</span>{" "}
+              student who creates digital solutions through{" "}
+              <span className="text-brand-blue font-medium">Mobile</span> and{" "}
+              <span className="text-brand-green font-medium">Web</span>{" "}
+              Development. My focus is on exploring modern technologies to build
+              functional, responsive applications that provide an optimal user
+              experience.
+            </p>
+
+            {/* Tech Stack List */}
+            <div className="mt-2 flex items-center gap-3">
+              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[16px] font-semibold">
+                React
+              </span>
+              <span className="text-zinc-600">•</span>
+              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[16px] font-semibold">
+                Flutter
+              </span>
+              <span className="text-zinc-600">•</span>
+              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[16px] font-semibold">
+                Laravel
+              </span>
+              <span className="text-zinc-600">•</span>
+              <a
+                href="/CV Altan Assyfa Naura Putra.pdf"
+                download
+                // Class dasar tombol tetap sama seperti keinginanmu
+                className="group bg-brand-blue/10 text-brand-blue hover:bg-brand-blue relative flex w-fit items-center gap-2 overflow-hidden rounded-full px-4 py-1.5 text-[16px] font-semibold transition-all duration-300 hover:text-white active:scale-95"
+              >
+                {/* === 1. Animasi Cahaya Lewat Berwarna Gradasi === */}
+                <div
+                  // KITA GUNAKAN GRADIENT VAR DISINI MELALUI INLINE STYLE
+                  style={{ backgroundImage: "var(--bg-gradient-altan)" }}
+                  // Penjelasan Class:
+                  // absolute inset-0 : Agar memenuhi ukuran tombol
+                  // -translate-x-full : Posisi awal di luar sebelah kiri
+                  // opacity-70 : PENTING! Agar warnanya agak transparan seperti cahaya/kilatan, tidak blok solid. (Bisa diatur 50-90)
+                  // transition-transform duration-700 : Durasi sedikit diperlambat agar warnanya lebih terlihat saat lewat
+                  // group-hover:translate-x-full : Saat dihover, bergerak ke luar sebelah kanan
+                  className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                ></div>
+
+                <span className="relative z-10">Download CV</span>
+
+                {/* 2. Animasi Ikon (Bounce & Slide) */}
+                <FileDown
+                  size={18}
+                  className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
+                />
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        {/* Experiences & Educations Section */}
+        {/* Grid Container: Kiri (Experiences), Kanan (Educations) */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+          {/* Kolom Kiri: Experiences */}
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-brand-blue h-2 w-2 rounded-full"></div>
+              <h3 className="text-[20px] font-bold tracking-wider text-white uppercase">
+                Experiences
+              </h3>
+            </div>
+
+            <div className="flex h-full flex-col gap-5">
+              <ExperienceCard
+                role="Mobile Developer"
+                status="Intern"
+                company="CAN Creative | Jasa Pembuatan Web dan Aplikasi Mobile"
+                location="Semarang, Indonesia"
+                period="October 2024 - March 2025"
+                description={[
+                  "Responsible for developing and maintaining mobile applications using the Flutter framework.",
+                ]}
+              />
+              <ExperienceCard
+                role="Mobile Developer"
+                status="Team Project"
+                company="SMK Raden Umar Said Kudus"
+                location="Kudus, Indonesia"
+                period="March - September 2024"
+                description={[
+                  "Collaborated in a team to develop mobile application features using Flutter. Ensured optimal performance and responsive layout for Android and iOS platforms.",
+                ]}
+              />
+            </div>
+          </div>
+
+          {/* Kolom Kanan: Educations */}
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-brand-green h-2 w-2 rounded-full"></div>
+              <h3 className="text-[20px] font-bold tracking-wider text-white uppercase">
+                Educations
+              </h3>
+            </div>
+
+            <div className="flex h-full flex-col gap-5">
+              <ExperienceCard
+                role="Informatics Engineering"
+                status="Student"
+                company="Dian Nuswantoro University"
+                location="Semarang, Indonesia"
+                period="2025 - Present"
+                description={[
+                  "Continuing my education at Dian Nuswatara University in Semarang, improving my skills and experience here.",
+                ]}
+              />
+              <ExperienceCard
+                role="Software and game engineering"
+                status="Alumni"
+                company="Raden Umar Said Vocational High School"
+                location="Kudus, Indonesia"
+                period="2022 - 2025"
+                description={[
+                  "Graduated with a grade of 89 in Software Engineering and completed a final project creating the RUS Consign Mobile application.",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* What I Do Section */}
+        <div className="mt-5 flex flex-row items-start gap-7">
+          <div className="flex flex-1 flex-col gap-3">
+            <h3 className="text-[28px] font-medium text-white">What I Do</h3>
+            <p className="text-[18px] leading-relaxed font-normal text-white">
+              Exploring modern technology to build functional, responsive{" "}
+              <span className="text-brand-blue font-medium">Applications</span>{" "}
+              and <span className="text-brand-green font-medium">Websites</span>{" "}
+              that provide an optimal user experience.{" "}
+            </p>
+          </div>
+          <div className="flex flex-[4] flex-row gap-5">
+            <ServiceCard
+              logo={
+                <FlutterIcon className="h-10 w-10 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+              }
+              title="Mobile Development"
+              desc="Developing high-performance apps with Flutter."
+              color="#FFFFFF"
             />
-            Deploy Now
-          </a>
+            <ServiceCard
+              logo={
+                <NextIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+              }
+              title="Web Development"
+              desc="Building modern web apps with Next.js."
+              color="#FFFFFF"
+            />
+            <ServiceCard
+              logo={
+                <FigmaIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#F24E1E]" />
+              }
+              title="UI Design"
+              desc="Creating interactive UI using Figma"
+              color="#FFFFFF"
+            />
+            {/* <ServiceCard
+              logo="/flutter_logo.png"
+              title="Mobile Development"
+              desc="Developing high-performance apps with Flutter."
+              color="#4CA9FF"
+            /> */}
+          </div>
+        </div>
+
+        {/* Tech Stack Section */}
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-[32px] font-bold tracking-tight text-white">
+              Tech Stack
+            </h2>
+            <div className="bg-brand-green h-1 w-50 rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                style={{ "--hover-color": skill.color } as React.CSSProperties}
+                className="group hover:border-brand-blue/30 relative flex w-full flex-row items-center gap-6 rounded-2xl border border-transparent bg-[#2D313E] px-6 py-5 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)]"
+              >
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#34394A] transition-transform duration-500 group-hover:rotate-6">
+                  {skill.logo}
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-[18px] font-bold text-white transition-colors duration-300 group-hover:text-[var(--hover-color)]">
+                    {skill.name}
+                  </h3>
+                  <span className="bg-brand-blue/10 w-fit rounded-full px-3 py-0.5 text-[14px] font-semibold text-white group-hover:text-[var(--hover-color)]">
+                    {skill.level}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* My Project Section */}
+        <div id="MyProjects" className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-[32px] font-bold tracking-tight text-white">
+              My Projects
+            </h2>
+            <div className="bg-brand-green h-1 w-50 rounded-full"></div>
+          </div>
+
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              category={project.category}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.imageSrc}
+              downloadLink={project.downloadLink}
+              isDownload={project.isDownload}
+              downloadText={project.downloadText}
+              techStacks={project.techStacks}
+            />
+          ))}
+
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/AllProjects"
+            className="group relative mt-2 flex w-fit cursor-pointer flex-row items-center gap-4 rounded-[12px] bg-[#2D313E] px-4 py-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg"
           >
-            Documentation
+            <div className="transition-transform duration-300 group-hover:scale-110">
+              <Image
+                src="/ViewList.png"
+                alt="ViewList"
+                width={20}
+                height={20}
+              />
+            </div>
+            <p className="font-utama text-[15px] font-medium text-zinc-400 transition-colors duration-300 group-hover:text-white">
+              See More
+            </p>
           </a>
         </div>
-      </main>
+
+        <Footer />
+      </div>
     </div>
   );
 }
