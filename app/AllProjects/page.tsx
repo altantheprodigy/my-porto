@@ -121,12 +121,12 @@ const Page = () => {
   ];
 
   return (
-    // Wrapper: Ditambahkan padding (px-36 py-20) dan dihapus teks hitam yang bentrok dengan bg gelap
-    <div className="bg-hitam-utama min-h-screen w-full px-8 py-16 font-sans selection:bg-gray-200 md:px-36 md:py-20">
-      {/* 1. Tombol Back to Home */}
+    // 1. RESPONSIVE PADDING: px-6 di mobile, px-20 di tablet, px-36 di laptop
+    <div className="bg-hitam-utama min-h-screen w-full px-6 py-12 font-sans selection:bg-gray-200 md:px-20 md:py-20 lg:px-36">
+      {/* 2. Tombol Back to Home: Rata tengah di mobile untuk estetika */}
       <Link
         href="/#MyProjects"
-        className="group mb-12 flex w-fit items-center gap-2 text-zinc-400 transition-colors duration-300 hover:text-white"
+        className="group mx-auto mb-10 flex w-fit items-center gap-2 text-zinc-400 transition-colors duration-300 hover:text-white md:mx-0"
       >
         <ArrowLeft
           size={20}
@@ -135,20 +135,20 @@ const Page = () => {
         <span className="text-[16px] font-medium">Back to Home</span>
       </Link>
 
-      {/* 2. Header Section */}
-      <div className="mb-14 flex flex-col gap-2">
-        <h1 className="text-[40px] font-bold tracking-tight text-white md:text-[56px]">
+      {/* 3. Header Section: Center alignment di mobile */}
+      <div className="mb-16 flex flex-col items-center gap-2 text-center md:items-start md:text-left">
+        <h1 className="text-[36px] font-bold tracking-tight text-white md:text-[56px]">
           All Projects
         </h1>
-        <div className="bg-brand-green h-1 w-32 rounded-full"></div>
-        <p className="mt-2 max-w-2xl text-[18px] leading-relaxed font-light text-zinc-400">
+        <div className="bg-brand-green h-1 w-24 rounded-full md:w-32"></div>
+        <p className="mt-4 max-w-2xl text-[16px] leading-relaxed font-light text-zinc-400 md:text-[18px]">
           A deeper dive into all the mobile and web applications I have built.
           From concept and design to deployment.
         </p>
       </div>
 
-      {/* 3. Project List Container (Hapus h-screen, ubah gap jadi lebih besar) */}
-      <div className="flex flex-col gap-12 pb-20">
+      {/* 4. Project List Container: Gap lebih besar di mobile agar antar kartu tidak rapat */}
+      <div className="flex flex-col gap-16 pb-20 md:gap-20">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}
@@ -166,5 +166,4 @@ const Page = () => {
     </div>
   );
 };
-
 export default Page;

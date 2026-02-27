@@ -29,10 +29,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   techStacks,
 }) => {
   return (
-    <div className="flex flex-row items-stretch gap-8">
-      {/* Kotak Kiri (Gambar) */}
-      <div className="flex-1 rounded-2xl bg-[#2D313E] p-5">
-        <div className="relative h-full min-h-[250px] w-full overflow-hidden rounded-xl">
+    /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop */
+    <div className="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-8">
+      {/* Kotak Gambar */}
+      {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
+      <div className="w-full flex-1 rounded-2xl bg-[#2D313E] p-4 md:p-5">
+        <div className="relative h-48 w-full overflow-hidden rounded-xl md:h-full md:min-h-[250px]">
           <Image
             src={imageSrc}
             alt={`Preview Project ${title}`}
@@ -43,25 +45,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
 
-      {/* Kotak Kanan (Teks & Tombol) */}
-      <div className="flex flex-[2] flex-col py-2">
-        {/* Konten Atas (Kategori, Judul, Deskripsi) */}
-        <div className="flex flex-col gap-3">
-          <p className="font-utama text-[15px] font-medium text-zinc-400">
+      {/* Kotak Teks & Tombol */}
+      {/* 3. PERBAIKAN: Hapus padding vertikal py-2 di mobile agar lebih rapat */}
+      <div className="flex flex-[2] flex-col md:py-2">
+        <div className="flex flex-col gap-3 text-center md:text-left">
+          <p className="font-utama text-[14px] font-medium text-zinc-400 md:text-[15px]">
             {category}
           </p>
-          <h3 className="text-[24px] font-bold text-white">{title}</h3>
-          <p className="font-utama line-clamp-4 text-[15px] leading-relaxed font-light text-zinc-400">
+          <h3 className="text-[20px] font-bold text-white md:text-[24px]">
+            {title}
+          </h3>
+          <p className="font-utama line-clamp-4 text-[14px] leading-relaxed font-light text-zinc-400 md:text-[15px]">
             {description}
           </p>
         </div>
 
-        {/* Konten Bawah (Tombol Download & Tech Stack) */}
-        <div className="mt-auto flex flex-row items-center gap-3 pt-4">
+        {/* Konten Bawah */}
+        {/* 4. PERBAIKAN: justify-center di mobile, mt-auto untuk dorong ke bawah di desktop */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-auto md:justify-start md:pt-4">
           <a
             href={downloadLink}
             download={isDownload ? true : undefined}
-            className="group bg-brand-blue/10 text-brand-blue relative flex w-fit items-center gap-2 overflow-hidden rounded-full px-3 py-3 text-[16px] font-semibold transition-all duration-300 hover:text-white active:scale-95"
+            target={isDownload ? "_self" : "_blank"}
+            className="group bg-brand-blue/10 text-brand-blue relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit md:text-[16px]"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
             <span className="relative z-10">{downloadText}</span>
@@ -71,41 +77,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             />
           </a>
 
-          {/* Render Garis Pemisah & Logo HANYA JIKA techStacks ada isinya */}
           {techStacks.length > 0 && (
             <>
-              {/* Pemisah Opsional (Garis vertikal) */}
-              <div className="mx-2 h-6 w-px bg-zinc-700"></div>
+              {/* Garis pemisah disembunyikan di mobile jika layout tombol penuh */}
+              <div className="hidden h-6 w-px bg-zinc-700 md:mx-2 md:block"></div>
 
-              {/* Map Tech Stack */}
-              {techStacks.map((tech, index) => (
-                // 2. PERBAIKAN: Hapus 'overflow-hidden' dari sini
-                <div
-                  key={index}
-                  className="group relative flex shrink-0 items-center justify-center rounded-xl bg-[#34394A] px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
-                >
-                  {/* 3. PERBAIKAN: Elemen Tooltip (Muncul saat hover) */}
-                  <span className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded-md bg-[#34394A] px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:-top-11 group-hover:rotate-[-6deg] group-hover:opacity-100">
-                    {tech.name}
-
-                    {/* Segitiga kecil panah ke bawah */}
-                    <svg
-                      className="absolute top-full left-0 h-2 w-full text-zinc-800"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 255 255"
-                      xmlSpace="preserve"
-                    >
-                      <polygon
-                        className="fill-current"
-                        points="0,0 127.5,127.5 255,0"
-                      />
-                    </svg>
-                  </span>
-
-                  {tech.logo}
-                </div>
-              ))}
+              <div className="flex flex-wrap justify-center gap-3">
+                {techStacks.map((tech, index) => (
+                  <div
+                    key={index}
+                    className="group relative flex shrink-0 items-center justify-center rounded-xl bg-[#34394A] px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
+                  >
+                    {/* Tooltip tetap berfungsi baik di desktop (hover) */}
+                    <span className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded-md bg-[#34394A] px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:-top-11 group-hover:rotate-[-6deg] group-hover:opacity-100">
+                      {tech.name}
+                      <svg
+                        className="absolute top-full left-0 h-2 w-full text-zinc-800"
+                        viewBox="0 0 255 255"
+                      >
+                        <polygon
+                          className="fill-current"
+                          points="0,0 127.5,127.5 255,0"
+                        />
+                      </svg>
+                    </span>
+                    {tech.logo}
+                  </div>
+                ))}
+              </div>
             </>
           )}
         </div>
