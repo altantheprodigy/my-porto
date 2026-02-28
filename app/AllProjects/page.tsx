@@ -22,7 +22,7 @@ const Page = () => {
       description:
         "An interactive chat card application that presents a variety of unique question decks with genres ranging from romance and hobbies to deep talk. In this solo project, I handled the entire front-end cycle, from UI design and slicing to API integration, which allows users to log in and create their own custom decks.",
       imageSrc: "/preview_conversation.png",
-      downloadLink: "/#",
+      downloadLink: "/conversation_card.apk",
       isDownload: true,
       downloadText: "Download App",
       techStacks: [
@@ -58,7 +58,7 @@ const Page = () => {
       description:
         "A comprehensive marketplace platform specifically designed to facilitate the sale of physical and digital products created by students. As a Front-End Developer, I played a major role in leading the visual aspects, from designing the interface in Figma, slicing the code to Flutter, to ensuring the smooth integration of the API with the Laravel backend.",
       imageSrc: "/RusConsign.png",
-      downloadLink: "/#",
+      downloadLink: "https://github.com/altantheprodigy/RusConsign.git",
       isDownload: false,
       downloadText: "View Project", // Berhubung ini isDownload = false, teksnya saya sarankan "View Project" / "View GitHub"
       techStacks: [
