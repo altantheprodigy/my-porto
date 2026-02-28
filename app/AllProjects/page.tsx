@@ -94,7 +94,7 @@ const Page = () => {
       description:
         "A financial transaction application similar to mobile banking, developed with a team using Flutter and Hive Local Database. This project challenged me to implement Figma designs into a responsive interface to support essential features such as transfers, top-ups, withdrawals, and purchases of various digital vouchers.",
       imageSrc: "/preview-airpay.png",
-      downloadLink: "/#",
+      downloadLink: "/airpay.apk",
       isDownload: true,
       downloadText: "Download App",
       techStacks: [
