@@ -4,13 +4,22 @@
   /* Menambahkan font kustom jika kamu sudah mengaturnya di layout */
   --font-utama: var(--font-poppins);
 
-  /* Warna kustom kamu */
-  --color-hitam-utama: #272727;
+  /* Warna kustom kamu yang sudah ada */
+  --color-hitam-utama: #030303;
   --color-border-nav: #4d4d4d;
-  /* Warna dari referensi kamu */
-  --color-brand-blue: #4ca9ff;
-  --color-brand-green: #3bf686;
+  --color-brand-blue: #3b82f6; /* Royal Blue, lebih dalam dari sebelumnya */
+  --color-brand-green: #10b981; /* Emerald Green, tidak terlalu neon/menyilaukan */
   --color-brand-blue1: #62d9ff;
+
+  /* Warna BARU dari referensi gambar untuk Card, Text, dan Badge */
+  --color-bg-card: #0a1120;
+  --color-text-secondary: #9ca3af;
+  --color-text-body: #8b949e;
+  --color-badge-bg: #172554;
+  --color-badge-text: #60a5fa;
+
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #10b981;
 
   /* Gradasi campuran */
   --bg-gradient-altan: linear-gradient(
@@ -21,8 +30,12 @@
 }
 
 @utility text-gradient-altan {
-  /* Persentase dihapus agar gradasi terbagi rata otomatis */
-  background-image: linear-gradient(to right, #3bf686, #4ca9ff);
+  /* Sekarang menggunakan variabel agar otomatis tersinkronisasi */
+  background-image: linear-gradient(
+    to right,
+    var(--color-brand-green),
+    var(--color-brand-blue)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -30,19 +43,17 @@
 /* Reset dasar agar layout mengikuti variabel background/foreground */
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    /* Set default ke palet gelap secara permanen */
+    --background: #030303; /* Warna hitam pekat dari background utama */
+    --foreground: #ffffff; /* Warna teks utama putih */
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
-    }
-  }
+  /* BLOK @media (prefers-color-scheme: dark) DIHAPUS 
+     agar browser tidak mencoba mengganti tema sendiri */
 
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
-    font-family: var(--font-sans);
+    /* Menggunakan font-utama yang sudah dideklarasikan di @theme */
+    font-family: var(--font-utama), sans-serif;
   }
 }

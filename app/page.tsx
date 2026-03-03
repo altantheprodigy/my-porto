@@ -168,18 +168,20 @@ export default function Home() {
         {/* Tombol Get Started */}
         <a
           href="#about"
-          className="group bg-brand-blue/10 text-brand-blue hover:bg-brand-blue relative mt-8 flex w-full max-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-4 text-[16px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit"
+          className="group border-brand-blue/30 bg-brand-blue/10 text-brand-blue relative mt-8 flex w-full max-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-2xl border px-6 py-4 text-[16px] font-semibold transition-all duration-300 hover:border-transparent hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] active:scale-95 md:w-fit"
         >
+          {/* Efek Gradasi yang mengisi penuh saat di-hover */}
           <div
             style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-            className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+            className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
           ></div>
 
           <span className="relative z-10">Get Started</span>
 
+          {/* Animasi roket meluncur ke kanan atas */}
           <RocketIcon
             size={18}
-            className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
+            className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
           />
         </a>
       </section>
@@ -220,7 +222,7 @@ export default function Home() {
               <div className="bg-brand-green h-1 w-12 rounded-full"></div>
             </div>
 
-            <p className="max-w-2xl text-[16px] leading-relaxed font-light text-zinc-300 md:text-[18px]">
+            <p className="max-w-2xl text-[16px] leading-relaxed text-text-body md:text-[18px]">
               A dedicated{" "}
               <span className="font-medium text-white">Computer Science</span>{" "}
               student at{" "}
@@ -257,7 +259,7 @@ export default function Home() {
               >
                 <div
                   style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-                  className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                  className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
                 ></div>
                 <span className="relative z-10">Download CV</span>
                 <FileDown
@@ -356,7 +358,7 @@ export default function Home() {
             <h3 className="text-[28px] font-medium text-white md:text-[32px]">
               What I Do
             </h3>
-            <p className="max-w-md text-[16px] leading-relaxed font-normal text-zinc-300 md:text-[18px]">
+            <p className="max-w-md text-[16px] leading-relaxed font-normal text-text-body md:text-[18px]">
               Exploring modern technology to build functional, responsive{" "}
               <span className="text-brand-blue font-medium">Applications</span>{" "}
               and <span className="text-brand-green font-medium">Websites</span>{" "}
@@ -421,10 +423,10 @@ export default function Home() {
               <div
                 key={index}
                 style={{ "--hover-color": skill.color } as React.CSSProperties}
-                className="group relative flex w-full flex-row items-center gap-4 rounded-2xl border border-transparent bg-[#2D313E] px-4 py-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)] md:gap-6 md:px-6 md:py-5"
+                className="group bg-bg-card relative flex w-full flex-row items-center gap-4 rounded-2xl border border-transparent px-4 py-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)] md:gap-6 md:px-6 md:py-5"
               >
                 {/* Ukuran Box Logo: Sedikit lebih kecil di mobile agar tidak sesak */}
-                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#34394A] transition-transform duration-500 group-hover:rotate-6 md:h-14 md:w-14">
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform duration-500 group-hover:rotate-6 md:h-14 md:w-14">
                   {skill.logo}
                 </div>
 
@@ -460,7 +462,7 @@ export default function Home() {
           {/* Tombol See More: w-full di mobile */}
           <a
             href="/AllProjects"
-            className="group relative mt-2 flex w-full cursor-pointer flex-row items-center justify-center gap-4 rounded-[12px] bg-[#2D313E] px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg md:w-fit md:py-3"
+            className="group bg-bg-card relative mt-2 flex w-full cursor-pointer flex-row items-center justify-center gap-4 rounded-[12px] px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg md:w-fit md:py-3"
           >
             <div className="transition-transform duration-300 group-hover:scale-110">
               <Image
@@ -470,7 +472,7 @@ export default function Home() {
                 height={20}
               />
             </div>
-            <p className="font-utama text-[15px] font-medium text-zinc-400 transition-colors duration-300 group-hover:text-white">
+            <p className="font-utama text-[15px] font-medium text-text-body transition-colors duration-300 group-hover:text-white">
               See More
             </p>
           </a>
