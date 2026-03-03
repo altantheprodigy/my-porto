@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* Kotak Gambar */}
       {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
       <div className="w-full flex-1 rounded-2xl bg-[#2D313E] p-4 md:p-5">
-        <div className="relative h-48 w-full overflow-hidden rounded-xl md:h-full md:min-h-[250px]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl">
           <Image
             src={imageSrc}
             alt={`Preview Project ${title}`}
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <h3 className="text-[20px] font-bold text-white md:text-[24px]">
             {title}
           </h3>
-          <p className="font-utama line-clamp-4 text-[14px] leading-relaxed font-light text-zinc-400 md:text-[15px]">
+          <p className="font-utama line-clamp-4 text-[14px] leading-relaxed text-text-body md:text-[15px]">
             {description}
           </p>
         </div>
@@ -86,10 +86,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {techStacks.map((tech, index) => (
                   <div
                     key={index}
-                    className="group relative flex shrink-0 items-center justify-center rounded-xl bg-bg-card px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
+                    className="group bg-bg-card relative flex shrink-0 items-center justify-center rounded-xl px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
                   >
                     {/* Tooltip tetap berfungsi baik di desktop (hover) */}
-                    <span className="pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md bg-bg-card px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
+                    <span className="bg-bg-card pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
                       {tech.name}
                       <svg
                         className="absolute top-full left-0 h-2 w-full text-zinc-800"

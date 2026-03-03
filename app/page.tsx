@@ -222,7 +222,7 @@ export default function Home() {
               <div className="bg-brand-green h-1 w-12 rounded-full"></div>
             </div>
 
-            <p className="max-w-2xl text-[16px] leading-relaxed font-light text-zinc-300 md:text-[18px]">
+            <p className="max-w-2xl text-[16px] leading-relaxed text-text-body md:text-[18px]">
               A dedicated{" "}
               <span className="font-medium text-white">Computer Science</span>{" "}
               student at{" "}
@@ -358,7 +358,7 @@ export default function Home() {
             <h3 className="text-[28px] font-medium text-white md:text-[32px]">
               What I Do
             </h3>
-            <p className="max-w-md text-[16px] leading-relaxed font-normal text-zinc-300 md:text-[18px]">
+            <p className="max-w-md text-[16px] leading-relaxed font-normal text-text-body md:text-[18px]">
               Exploring modern technology to build functional, responsive{" "}
               <span className="text-brand-blue font-medium">Applications</span>{" "}
               and <span className="text-brand-green font-medium">Websites</span>{" "}
@@ -462,7 +462,7 @@ export default function Home() {
           {/* Tombol See More: w-full di mobile */}
           <a
             href="/AllProjects"
-            className="group relative mt-2 flex w-full cursor-pointer flex-row items-center justify-center gap-4 rounded-[12px] bg-[#2D313E] px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg md:w-fit md:py-3"
+            className="group bg-bg-card relative mt-2 flex w-full cursor-pointer flex-row items-center justify-center gap-4 rounded-[12px] px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg md:w-fit md:py-3"
           >
             <div className="transition-transform duration-300 group-hover:scale-110">
               <Image
@@ -472,7 +472,7 @@ export default function Home() {
                 height={20}
               />
             </div>
-            <p className="font-utama text-[15px] font-medium text-zinc-400 transition-colors duration-300 group-hover:text-white">
+            <p className="font-utama text-[15px] font-medium text-text-body transition-colors duration-300 group-hover:text-white">
               See More
             </p>
           </a>
