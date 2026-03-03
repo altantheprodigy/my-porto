@@ -18,11 +18,11 @@ export default function ServiceCard({
       className="group relative h-full cursor-default" // Tambahkan h-full di sini
       style={{ "--warna-tema": color } as React.CSSProperties}
     >
-      <div className="group-hover:border-brand-green/30 flex h-full flex-col items-center rounded-2xl border border-transparent bg-[#2D313E] px-8 pt-14 pb-12 text-center transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:shadow-[0_20px_50px_rgba(59,246,134,0.1)]">
+      <div className="group-hover:border-brand-green/30 flex h-full flex-col items-center rounded-2xl border border-transparent bg-bg-card px-8 pt-14 pb-12 text-center transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:shadow-[0_20px_50px_rgba(59,246,134,0.1)]">
         {/* Ikon Tetap Sama */}
         <div className="absolute -top-12 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:scale-110">
           <div className="from-brand-green to-brand-blue relative h-24 w-24 rounded-full bg-gradient-to-b p-[2px] shadow-lg">
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-[#34394A]">
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-bg-card">
               <div className="flex h-14 w-14 items-center justify-center transition-transform duration-500 group-hover:rotate-6">
                 {logo}
               </div>

@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={downloadLink}
             download={isDownload ? true : undefined}
             target={isDownload ? "_self" : "_blank"}
-            className="group bg-brand-blue/10 text-brand-blue relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit md:text-[16px]"
+            className="group bg-bg-card text-brand-blue relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit md:text-[16px]"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
             <span className="relative z-10">{downloadText}</span>
@@ -86,10 +86,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {techStacks.map((tech, index) => (
                   <div
                     key={index}
-                    className="group relative flex shrink-0 items-center justify-center rounded-xl bg-[#34394A] px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
+                    className="group relative flex shrink-0 items-center justify-center rounded-xl bg-bg-card px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
                   >
                     {/* Tooltip tetap berfungsi baik di desktop (hover) */}
-                    <span className="pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md bg-[#34394A] px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
+                    <span className="pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md bg-bg-card px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
                       {tech.name}
                       <svg
                         className="absolute top-full left-0 h-2 w-full text-zinc-800"

@@ -168,18 +168,20 @@ export default function Home() {
         {/* Tombol Get Started */}
         <a
           href="#about"
-          className="group bg-brand-blue/10 text-brand-blue hover:bg-brand-blue relative mt-8 flex w-full max-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-4 text-[16px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit"
+          className="group border-brand-blue/30 bg-brand-blue/10 text-brand-blue relative mt-8 flex w-full max-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-2xl border px-6 py-4 text-[16px] font-semibold transition-all duration-300 hover:border-transparent hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] active:scale-95 md:w-fit"
         >
+          {/* Efek Gradasi yang mengisi penuh saat di-hover */}
           <div
             style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-            className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+            className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
           ></div>
 
           <span className="relative z-10">Get Started</span>
 
+          {/* Animasi roket meluncur ke kanan atas */}
           <RocketIcon
             size={18}
-            className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
+            className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
           />
         </a>
       </section>
@@ -257,7 +259,7 @@ export default function Home() {
               >
                 <div
                   style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-                  className="absolute inset-0 -translate-x-full opacity-70 transition-transform duration-700 ease-in-out group-hover:translate-x-full"
+                  className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
                 ></div>
                 <span className="relative z-10">Download CV</span>
                 <FileDown
@@ -421,10 +423,10 @@ export default function Home() {
               <div
                 key={index}
                 style={{ "--hover-color": skill.color } as React.CSSProperties}
-                className="group relative flex w-full flex-row items-center gap-4 rounded-2xl border border-transparent bg-[#2D313E] px-4 py-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)] md:gap-6 md:px-6 md:py-5"
+                className="group bg-bg-card relative flex w-full flex-row items-center gap-4 rounded-2xl border border-transparent px-4 py-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)] md:gap-6 md:px-6 md:py-5"
               >
                 {/* Ukuran Box Logo: Sedikit lebih kecil di mobile agar tidak sesak */}
-                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#34394A] transition-transform duration-500 group-hover:rotate-6 md:h-14 md:w-14">
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform duration-500 group-hover:rotate-6 md:h-14 md:w-14">
                   {skill.logo}
                 </div>
 
