@@ -29,11 +29,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   techStacks,
 }) => {
   return (
-    /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop */
-    <div className="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-8">
+    /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop + Glassmorphism */
+    <div className="group hover:border-brand-blue/30 flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] md:flex-row md:items-stretch md:gap-8 md:p-6">
       {/* Kotak Gambar */}
       {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
-      <div className="w-full flex-1 rounded-2xl bg-[#2D313E] p-4 md:p-5">
+      <div className="group-hover:shadow-brand-blue/10 w-full flex-1 overflow-hidden rounded-2xl bg-black/40 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
         <div className="relative aspect-video w-full overflow-hidden rounded-xl">
           <Image
             src={imageSrc}
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <h3 className="text-[20px] font-bold text-white md:text-[24px]">
             {title}
           </h3>
-          <p className="font-utama line-clamp-4 text-[14px] leading-relaxed text-text-body md:text-[15px]">
+          <p className="font-utama text-text-body line-clamp-4 text-[14px] leading-relaxed md:text-[15px]">
             {description}
           </p>
         </div>

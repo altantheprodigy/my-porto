@@ -15,8 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className="scroll-smooth">
-      <body>
-        {/* <Navbar /> */}
+      <body className="bg-hitam-utama selection:bg-brand-blue/30 text-white selection:text-white">
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>
