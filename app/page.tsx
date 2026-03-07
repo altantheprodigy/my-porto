@@ -1,7 +1,10 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import Image from "next/image";
 import { ArrowBigDown, FileDown, Rocket, RocketIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   DartIcon,
   FigmaIcon,
@@ -145,134 +148,240 @@ export default function Home() {
 
   return (
     // Outer container: Hapus padding dan gap di sini agar Hero bisa full-screen
-    <div className="bg-hitam-utama min-h-screen font-sans text-black selection:bg-gray-200">
+    <div className="bg-hitam-utama selection:bg-brand-blue/30 relative min-h-screen overflow-hidden font-sans text-white selection:text-white">
+      {/* Background Ambient Glows */}
+      <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full overflow-hidden">
+        <div className="bg-brand-blue/20 absolute -top-[20%] -left-[10%] h-[50%] w-[50%] rounded-full blur-[120px]" />
+        <div className="bg-brand-green/10 absolute top-[20%] -right-[10%] h-[60%] w-[40%] rounded-full blur-[120px]" />
+      </div>
+
       {/* 1. HERO SECTION (Memenuhi Layar 100vh) */}
-      <section className="flex h-screen flex-col items-center justify-center px-6 text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center">
+        {/* Animated Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-8 rotate-[-2deg] rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm shadow-lg backdrop-blur-md"
+        >
+          <span className="from-brand-green to-brand-blue bg-gradient-to-r bg-clip-text font-medium text-transparent">
+            Available for new opportunities
+          </span>
+        </motion.div>
+
         {/* Font Size: text-4xl di HP, text-6xl di Laptop */}
-        <h1 className="font-utama text-4xl font-bold tracking-tighter text-white md:text-6xl lg:text-7xl">
-          Hi, I'm <span className="text-gradient-altan">Altan Putra</span>
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="font-utama text-5xl font-extrabold tracking-tighter text-white md:text-7xl lg:text-8xl"
+        >
+          Hi, I'm <br className="md:hidden" />
+          <span className="text-gradient-altan relative drop-shadow-lg">
+            Altan Putra
+            <motion.span
+              className="from-brand-green to-brand-blue absolute -bottom-2 left-0 h-[6px] w-full rounded-full bg-gradient-to-r opacity-50 blur-sm"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            />
+          </span>
+        </motion.h1>
 
         {/* Flex-col di HP agar tidak bertabrakan, Flex-row di Laptop */}
-        <p className="mt-6 flex flex-col items-center text-lg font-light text-zinc-400 md:flex-row md:text-2xl">
-          <span className="text-brand-blue font-medium">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          className="mt-8 flex flex-col items-center text-lg font-light text-zinc-400 md:flex-row md:text-2xl"
+        >
+          <span className="text-brand-blue font-medium drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
             Mobile Development
           </span>
-          {/* Sembunyikan garis pemisah (|) di HP, munculkan di MD (tablet) ke atas */}
           <span className="mx-4 hidden text-zinc-600 md:inline">|</span>
-          <span className="text-brand-green mt-2 font-medium md:mt-0">
+          <span className="text-brand-green mt-2 font-medium drop-shadow-[0_0_10px_rgba(16,185,129,0.3)] md:mt-0">
             Web Development
           </span>
-        </p>
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-6 max-w-xl text-base text-balance text-zinc-400 md:text-lg"
+        >
+          Crafting intuitive, performant, and premium digital experiences across
+          mobile and web platforms.
+        </motion.p>
 
         {/* Tombol Get Started */}
-        <a
-          href="#about"
-          className="group border-brand-blue/30 bg-brand-blue/10 text-brand-blue relative mt-8 flex w-full max-w-[200px] items-center justify-center gap-2 overflow-hidden rounded-2xl border px-6 py-4 text-[16px] font-semibold transition-all duration-300 hover:border-transparent hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] active:scale-95 md:w-fit"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+          className="mt-10 flex w-full justify-center"
         >
-          {/* Efek Gradasi yang mengisi penuh saat di-hover */}
-          <div
-            style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-            className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-          ></div>
+          <a
+            href="#about"
+            className="group relative flex w-full max-w-[220px] items-center justify-center gap-2 overflow-hidden rounded-full p-[2px] font-semibold transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] active:scale-95 md:w-fit"
+          >
+            {/* Animated Border Gradient */}
+            <span className="from-brand-blue via-brand-green to-brand-blue absolute inset-0 animate-[spin_4s_linear_infinite] bg-gradient-to-r" />
 
-          <span className="relative z-10">Get Started</span>
+            {/* Inner Content */}
+            <span className="bg-hitam-utama group-hover:bg-hitam-utama/40 relative flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-[16px] transition-all duration-300 group-hover:backdrop-blur-md">
+              <span className="relative z-10 text-white transition-colors group-hover:text-white">
+                Start Exploring
+              </span>
 
-          {/* Animasi roket meluncur ke kanan atas */}
-          <RocketIcon
-            size={18}
-            className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+              <RocketIcon
+                size={18}
+                className="text-brand-blue group-hover:text-brand-green relative z-10 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </span>
+          </a>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+        >
+          <span className="text-xs font-semibold tracking-widest text-zinc-500 uppercase">
+            Scroll Down
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="from-brand-blue h-12 w-[1px] bg-gradient-to-b to-transparent"
           />
-        </a>
+        </motion.div>
       </section>
       {/* 2. MAIN CONTENT WRAPPER (Mengembalikan padding & gap asli untuk sisa konten) */}
       <div className="flex flex-col gap-15 px-6 py-20 pb-32 md:px-20 lg:px-36">
         {/* 2. ABOUT ME SECTION */}
-        {/* Ubah 'flex-row' menjadi 'flex-col' untuk mobile, 'md:flex-row' untuk desktop */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
           id="about"
-          className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12"
+          className="flex flex-col items-center gap-8 pt-10 md:flex-row md:items-center md:gap-16"
         >
           {/* Avatar Section */}
-          {/* Gunakan 'h-48 w-48' agar sedikit lebih besar di mobile agar proporsional */}
-          <div className="group relative h-40 w-40 shrink-0 md:h-48 md:w-48">
-            <div className="from-brand-green to-brand-blue absolute -inset-1 rounded-full bg-gradient-to-br opacity-25 blur transition duration-1000 group-hover:opacity-50"></div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="group relative h-48 w-48 shrink-0 md:h-64 md:w-64"
+          >
+            {/* Animated Glow Behind Avatar */}
+            <div className="from-brand-green to-brand-blue absolute -inset-2 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] rounded-full bg-gradient-to-br opacity-30 blur-xl transition duration-1000 group-hover:opacity-60"></div>
+            <div className="from-brand-green via-brand-blue absolute -inset-1 animate-[spin_6s_linear_infinite] rounded-full bg-gradient-to-br to-purple-500 opacity-50 blur-md transition duration-500 group-hover:opacity-100"></div>
 
-            <div className="from-brand-green via-brand-blue to-brand-blue relative h-full w-full rounded-full bg-gradient-to-br p-[3px]">
-              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#272727]">
+            <div className="bg-hitam-utama relative z-10 h-full w-full rounded-full p-[4px]">
+              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#1a1a1a]">
                 <Image
                   src="/altan-seragam.jpeg"
                   alt="Altan Putra"
-                  width={192} // Sesuaikan dengan ukuran md:w-48
-                  height={192}
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  width={256}
+                  height={256}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   priority
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Biography Section */}
-          {/* 'text-center' di mobile, 'md:text-left' di desktop */}
-          <div className="flex flex-1 flex-col items-center gap-4 text-center md:items-start md:text-left">
-            <div className="flex flex-col items-center gap-1 md:items-start">
-              <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
+          <div className="flex flex-1 flex-col items-center gap-6 text-center md:items-start md:text-left">
+            <div className="flex flex-col items-center gap-2 md:items-start">
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-3xl font-bold tracking-tight text-white md:text-4xl"
+              >
                 About Me
-              </h2>
-              <div className="bg-brand-green h-1 w-12 rounded-full"></div>
+              </motion.h2>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 64 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="bg-brand-green h-1.5 rounded-full"
+              />
             </div>
 
-            <p className="max-w-2xl text-[16px] leading-relaxed text-text-body md:text-[18px]">
-              A dedicated{" "}
-              <span className="font-medium text-white">Computer Science</span>{" "}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="max-w-2xl text-[16px] leading-relaxed text-zinc-400 md:text-[18px]"
+            >
+              A passionate{" "}
+              <span className="font-semibold text-white drop-shadow-md">
+                Computer Science
+              </span>{" "}
               student at{" "}
-              <span className="font-medium text-white">UDINUS Semarang</span>{" "}
-              who creates digital solutions through{" "}
-              <span className="text-brand-blue font-medium">Mobile</span> and{" "}
-              <span className="text-brand-green font-medium">Web</span>{" "}
-              Development. My focus is on exploring modern technologies to build
-              functional, responsive applications that provide an optimal user
-              experience.
-            </p>
+              <span className="hover:text-brand-blue cursor-pointer font-semibold text-white transition-colors">
+                UDINUS Semarang
+              </span>{" "}
+              who crafts digital solutions through{" "}
+              <span className="text-brand-blue font-semibold">Mobile</span> and{" "}
+              <span className="text-brand-green font-semibold">Web</span>{" "}
+              Development. I focus on exploring modern technologies to build
+              highly functional, visually stunning, and responsive applications
+              that leave a lasting impression.
+            </motion.p>
 
-            {/* Tech Stack List: 'justify-center' di mobile, 'md:justify-start' di desktop */}
-            {/* Gunakan 'flex-wrap' agar tag tidak terpotong saat layar sempit */}
-            <div className="mt-2 flex flex-wrap justify-center gap-3 md:justify-start">
-              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[14px] font-semibold md:text-[16px]">
-                React
-              </span>
-              <span className="hidden text-zinc-600 md:inline">•</span>
-              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[14px] font-semibold md:text-[16px]">
-                Flutter
-              </span>
-              <span className="hidden text-zinc-600 md:inline">•</span>
-              <span className="text-brand-blue bg-brand-blue/10 rounded-full px-3 py-1 text-[14px] font-semibold md:text-[16px]">
-                Laravel
-              </span>
-              <span className="hidden text-zinc-600 md:inline">•</span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start"
+            >
+              {["React", "Next.js", "Flutter", "Laravel"].map((tech, i) => (
+                <span
+                  key={tech}
+                  className="text-brand-blue bg-brand-blue/10 border-brand-blue/20 hover:bg-brand-blue/20 cursor-default rounded-full border px-4 py-1.5 text-[14px] font-medium shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
 
-              {/* Tombol Download CV: 'w-full' di mobile agar mudah diklik */}
+              <span className="mx-2 hidden text-zinc-600 md:inline">•</span>
+
               <a
                 href="/CV Altan Assyfa Naura Putra.pdf"
                 download
-                className="group bg-brand-blue/10 text-brand-blue hover:bg-brand-blue relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-2 text-[14px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit md:text-[16px]"
+                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-[15px] font-semibold transition-all duration-300 active:scale-95 sm:w-fit"
               >
-                <div
-                  style={{ backgroundImage: "var(--bg-gradient-altan)" }}
-                  className="absolute inset-0 -translate-x-full opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-                ></div>
-                <span className="relative z-10">Download CV</span>
-                <FileDown
-                  size={18}
-                  className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
-                />
+                <span className="from-brand-blue to-brand-green absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100" />
+                <span className="bg-hitam-utama group-hover:bg-hitam-utama/80 relative flex w-full items-center gap-2 rounded-full px-5 py-2 transition-colors">
+                  <span className="bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
+                    Download CV
+                  </span>
+                  <FileDown
+                    size={18}
+                    className="group-hover:text-brand-green text-white transition-all duration-300 group-hover:translate-y-0.5"
+                  />
+                </span>
               </a>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Experiences & Educations Section */}
-        <div className="flex flex-col gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col gap-8"
+        >
           <div className="flex flex-col items-center gap-1 md:items-start">
             <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
               Experiences & Educations
@@ -349,16 +458,22 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* What I Do Section */}
-        <div className="mt-10 flex flex-col gap-20 lg:flex-row lg:items-stretch lg:gap-7">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-10 flex flex-col gap-20 lg:flex-row lg:items-stretch lg:gap-7"
+        >
           {/* Teks Judul & Deskripsi */}
           <div className="flex flex-col items-center gap-3 text-center lg:flex-1 lg:items-start lg:text-left">
             <h3 className="text-[28px] font-medium text-white md:text-[32px]">
               What I Do
             </h3>
-            <p className="max-w-md text-[16px] leading-relaxed font-normal text-text-body md:text-[18px]">
+            <p className="text-text-body max-w-md text-[16px] leading-relaxed font-normal md:text-[18px]">
               Exploring modern technology to build functional, responsive{" "}
               <span className="text-brand-blue font-medium">Applications</span>{" "}
               and <span className="text-brand-green font-medium">Websites</span>{" "}
@@ -402,10 +517,16 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tech Stack Section */}
-        <div className="flex flex-col gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col gap-6"
+        >
           <div className="flex flex-col items-center gap-1 md:items-start">
             <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
               Tech Stack
@@ -442,10 +563,17 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* My Project Section */}
-        <div id="MyProjects" className="flex flex-col gap-8 md:gap-12">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          id="MyProjects"
+          className="flex flex-col gap-8 md:gap-12"
+        >
           <div className="flex flex-col items-center gap-1 md:items-start">
             <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
               My Projects
@@ -472,11 +600,11 @@ export default function Home() {
                 height={20}
               />
             </div>
-            <p className="font-utama text-[15px] font-medium text-text-body transition-colors duration-300 group-hover:text-white">
+            <p className="font-utama text-text-body text-[15px] font-medium transition-colors duration-300 group-hover:text-white">
               See More
             </p>
           </a>
-        </div>
+        </motion.div>
 
         <Footer />
       </div>
