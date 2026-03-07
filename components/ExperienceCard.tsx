@@ -18,7 +18,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group bg-bg-card relative flex h-full flex-col gap-3 rounded-2xl p-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-[#34394A] hover:shadow-xl">
+    <div className="group hover:border-brand-blue/30 relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)]">
       {/* Header: Role & Status */}
       <div className="flex flex-row items-center justify-between gap-4">
         <h3 className="group-hover:text-accent-blue font-utama text-[20px] font-bold text-white transition-colors duration-300">
