@@ -22,7 +22,7 @@ const Page = () => {
       description:
         "An interactive chat card application that presents a variety of unique question decks with genres ranging from romance and hobbies to deep talk. In this solo project, I handled the entire front-end cycle, from UI design and slicing to API integration, which allows users to log in and create their own custom decks.",
       imageSrc: "/preview_conversation.png",
-      downloadLink: "/conversation_card.apk",
+      downloadLink: "/conversation_card_latest.apk",
       isDownload: true,
       downloadText: "Download App",
       techStacks: [
