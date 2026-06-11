@@ -15,9 +15,13 @@ import {
   NextIcon,
   PhpIcon,
   TailWindIcon,
+  TypescriptIcon,
+  SupabaseIcon,
+  VercelIcon,
 } from "@/components/TechStackIcon";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceCard from "@/components/ExperienceCard";
+import AwardCard from "@/components/AwardCard";
 
 export default function Home() {
   const skills = [
@@ -72,6 +76,48 @@ export default function Home() {
   ];
 
   const projects = [
+    {
+      category: "Web Development",
+      title: "FLORAVERSE",
+      description:
+        "A web application that won 1st place in Web Development at FICPACTCUP2026. I served as the Front-End Developer, building the interface and ensuring a seamless user experience using modern web technologies.",
+      imageSrc: "/floraverse.png",
+      downloadLink: "https://floraverse.vercel.app/",
+      isDownload: false,
+      downloadText: "View Web",
+      techStacks: [
+        {
+          name: "Next.js",
+          logo: (
+            <NextIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+          ),
+        },
+        {
+          name: "TypeScript",
+          logo: (
+            <TypescriptIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3178C6]" />
+          ),
+        },
+        {
+          name: "Tailwind CSS",
+          logo: (
+            <TailWindIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+          ),
+        },
+        {
+          name: "Supabase",
+          logo: (
+            <SupabaseIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3ECF8E]" />
+          ),
+        },
+        {
+          name: "Vercel",
+          logo: (
+            <VercelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+          ),
+        },
+      ],
+    },
     {
       category: "Mobile Development",
       title: "Conversation Card",
@@ -143,6 +189,41 @@ export default function Home() {
           ),
         },
       ],
+    },
+  ];
+
+  const awards = [
+    {
+      title: "1st Place Web Development",
+      organizer: "FICPACTCUP2026, UNIKA Semarang",
+      rank: "Winner",
+      projectName: "FLORAVERSE",
+      role: "Front End Dev",
+      date: "7 April 2026",
+      images: ["/floraverse.png", "/foto-bertiga-floraverse.jpeg", "/foto-piagam-piala.jpeg"],
+      techStacks: [
+        {
+          name: "Next.js",
+          logo: <NextIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />,
+        },
+        {
+          name: "TypeScript",
+          logo: <TypescriptIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3178C6]" />,
+        },
+        {
+          name: "Tailwind CSS",
+          logo: <TailWindIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />,
+        },
+        {
+          name: "Supabase",
+          logo: <SupabaseIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3ECF8E]" />,
+        },
+        {
+          name: "Vercel",
+          logo: <VercelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />,
+        },
+      ],
+      link: "https://floraverse.vercel.app/",
     },
   ];
 
@@ -355,7 +436,7 @@ export default function Home() {
               <span className="mx-2 hidden text-zinc-600 md:inline">•</span>
 
               <a
-                href="/CV Altan Assyfa Naura Putra.pdf"
+                href="/CV_Altan_Assyfa_Naura_Putra_Updated.pdf"
                 download
                 className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-[15px] font-semibold transition-all duration-300 active:scale-95 sm:w-fit"
               >
@@ -457,6 +538,28 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+        </motion.div>
+
+        {/* Awards & Achievements Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col gap-8"
+        >
+          <div className="flex flex-col items-center gap-1 md:items-start">
+            <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
+              Awards & Achievements
+            </h2>
+            <div className="h-1 w-20 rounded-full bg-amber-500 md:w-80"></div>
+          </div>
+
+          <div className="flex flex-col gap-10">
+            {awards.map((award, index) => (
+              <AwardCard key={index} {...award} />
+            ))}
           </div>
         </motion.div>
 

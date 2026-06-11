@@ -79,7 +79,7 @@ const Navbar = () => {
             })}
 
             <a
-              href="/CV Altan Assyfa Naura Putra.pdf"
+              href="/CV_Altan_Assyfa_Naura_Putra_Updated.pdf"
               download
               className="group relative ml-2 inline-flex items-center justify-center overflow-hidden rounded-full p-px font-semibold sm:ml-4"
             >
