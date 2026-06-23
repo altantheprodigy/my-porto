@@ -363,7 +363,7 @@ export default function Home() {
             <div className="bg-hitam-utama relative z-10 h-full w-full rounded-full p-[4px]">
               <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#1a1a1a]">
                 <Image
-                  src="/altan-seragam.jpeg"
+                  src="/my-foto.jpeg"
                   alt="Altan Putra"
                   width={256}
                   height={256}
