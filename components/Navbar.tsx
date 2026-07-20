@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -33,60 +33,60 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "bg-hitam-utama/70 border-b border-white/10 py-3 shadow-lg backdrop-blur-xl"
+          ? "bg-white/70 border-b border-zinc-200 py-3 shadow-lg backdrop-blur-md"
           : "bg-transparent py-5",
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-utama group flex items-center gap-2 text-xl font-bold tracking-tighter text-white"
-          >
-            <div className="from-brand-green to-brand-blue shadow-brand-blue/20 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br text-sm font-black text-white shadow-lg">
-              A
-            </div>
-            <span className="hidden sm:block">AltanPutra</span>
-          </Link>
+          <div className="flex items-center md:w-1/4">
+            <Link
+              href="/"
+              className="font-utama group flex items-center gap-2 text-xl font-bold tracking-tighter text-zinc-900"
+            >
+              <div className="from-brand-blue to-brand-blue1 shadow-brand-blue/20 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br text-sm font-black text-white shadow-lg">
+                A
+              </div>
+              <span className="hidden sm:block">AltanPutra</span>
+            </Link>
+          </div>
 
-          {/* Navigasi Desktop & Mobile - Bikin sederhana di tengah/kanan */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            {menuItems.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname.startsWith(item.href));
-              return (
+          {/* Navigasi Desktop */}
+          <div className="hidden items-center justify-center gap-8 md:flex md:w-1/2">
+            {menuItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Navigasi Mobile & Button */}
+          <div className="flex items-center justify-end gap-3 md:w-1/4 sm:gap-4">
+            {/* Mobile Links */}
+            <div className="flex items-center gap-3 md:hidden">
+              {menuItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="relative px-3 py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white sm:px-4"
+                  className="text-xs font-medium text-zinc-500 transition-colors hover:text-zinc-900 sm:text-sm"
                 >
-                  <span className="relative z-10">{item.name}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute inset-0 rounded-full border border-white/10 bg-white/10"
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                      }}
-                    />
-                  )}
+                  {item.name}
                 </Link>
-              );
-            })}
-
+              ))}
+            </div>
+            
+            {/* Button Resume */}
             <a
               href="/CV_Altan_Assyfa_Naura_Putra_Updated.pdf"
               download
-              className="group relative ml-2 inline-flex items-center justify-center overflow-hidden rounded-full p-px font-semibold sm:ml-4"
+              className="inline-flex cursor-pointer items-center justify-center rounded-[6px] border border-[#2563eb] bg-[#2563eb] px-6 py-2.5 sm:px-8 sm:py-3 text-sm font-semibold text-white transition-all duration-200 ease-out [box-shadow:inset_0_-1.5px_1px_#3b82f6,inset_0_-6px_1px_#1d4ed8] hover:translate-y-[1px] hover:[box-shadow:inset_0_4px_4px_#1e3a8a]"
             >
-              <span className="from-brand-green via-brand-blue to-brand-green absolute inset-0 animate-[spin_2s_linear_infinite] bg-gradient-to-r opacity-70 group-hover:opacity-100" />
-              <div className="bg-hitam-utama group-hover:bg-hitam-utama/50 relative flex items-center gap-2 rounded-full px-4 py-1.5 transition-all duration-300">
-                <span className="text-sm font-medium text-white">Resume</span>
-              </div>
+              Resume
             </a>
           </div>
         </div>

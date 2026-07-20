@@ -122,11 +122,11 @@ const Page = () => {
 
   return (
     // 1. RESPONSIVE PADDING: px-6 di mobile, px-20 di tablet, px-36 di laptop
-    <div className="bg-hitam-utama min-h-screen w-full px-6 py-12 font-sans selection:bg-gray-200 md:px-20 md:py-20 lg:px-36">
+    <div className="bg-white min-h-screen w-full px-6 py-12 font-sans selection:bg-gray-200 md:px-20 md:py-20 lg:px-36">
       {/* 2. Tombol Back to Home: Rata tengah di mobile untuk estetika */}
       <Link
         href="/#MyProjects"
-        className="group mx-auto mb-10 flex w-fit items-center gap-2 text-zinc-400 transition-colors duration-300 hover:text-white md:mx-0"
+        className="group mx-auto mb-10 flex w-fit items-center gap-2 text-zinc-500 transition-colors duration-300 hover:text-zinc-900 md:mx-0"
       >
         <ArrowLeft
           size={20}
@@ -137,11 +137,11 @@ const Page = () => {
 
       {/* 3. Header Section: Center alignment di mobile */}
       <div className="mb-16 flex flex-col items-center gap-2 text-center md:items-start md:text-left">
-        <h1 className="text-[36px] font-bold tracking-tight text-white md:text-[56px]">
+        <h1 className="text-[36px] font-bold tracking-tight text-zinc-900 md:text-[56px]">
           All Projects
         </h1>
-        <div className="bg-brand-green h-1 w-24 rounded-full md:w-32"></div>
-        <p className="mt-4 max-w-2xl text-[16px] leading-relaxed font-light text-zinc-400 md:text-[18px]">
+        <div className="bg-brand-blue h-1 w-24 rounded-full md:w-32"></div>
+        <p className="mt-4 max-w-2xl text-[16px] leading-relaxed font-light text-zinc-500 md:text-[18px]">
           A deeper dive into all the mobile and web applications I have built.
           From concept and design to deployment.
         </p>

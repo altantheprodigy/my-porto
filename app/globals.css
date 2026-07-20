@@ -3,31 +3,29 @@
 @theme {
   --font-utama: var(--font-poppins);
 
-  --color-hitam-utama: #030303;
-  --color-border-nav: #4d4d4d;
+  /* Solid Whites and Grays for Background */
+  --color-hitam-utama: #ffffff; /* Keeping variable name to avoid breaks, but mapped to white */
+  --color-border-nav: #e5e7eb;
 
-  /* Komentar dipindah ke atas agar tidak merusak sistem opasitas Tailwind */
-  /* Royal Blue */
-  --color-brand-blue: #3b82f6;
-  /* Emerald Green */
-  --color-brand-green: #10b981;
+  /* Primary Blue Theme */
+  --color-brand-blue: #2563eb; /* Strong Blue */
+  --color-brand-green: #3b82f6; /* Map green to a lighter blue to keep things simple */
 
-  --color-brand-blue1: #62d9ff;
-  --color-bg-card: #0a1120;
-  --color-text-secondary: #9ca3af;
-  --color-text-body: #8b949e;
-  --color-badge-bg: #172554;
-  --color-badge-text: #60a5fa;
+  --color-brand-blue1: #60a5fa;
+  --color-bg-card: #ffffff;
+  --color-text-secondary: #6b7280;
+  --color-text-body: #4b5563;
+  --color-badge-bg: #eff6ff;
+  --color-badge-text: #1d4ed8;
 
-  --color-accent-blue: #3b82f6;
-  --color-accent-green: #10b981;
+  --color-accent-blue: #2563eb;
+  --color-accent-green: #3b82f6;
 
-  /* Menggunakan kode Hex langsung agar lebih stabil di semua browser */
-  --bg-gradient-altan: linear-gradient(to right, #10b981, #3b82f6);
+  --bg-gradient-altan: linear-gradient(to right, #60a5fa, #2563eb);
 }
 
 @utility text-gradient-altan {
-  background-image: linear-gradient(to right, #10b981, #3b82f6);
+  background-image: linear-gradient(to right, #60a5fa, #2563eb);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -35,12 +33,17 @@
 
 @layer base {
   :root {
-    --background: #030303;
-    --foreground: #ffffff;
+    --background: #f9fafb; /* Light gray background */
+    --foreground: #111827; /* Dark text */
   }
 
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
     font-family: var(--font-utama), sans-serif;
   }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }

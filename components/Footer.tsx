@@ -23,14 +23,14 @@ const Footer = () => {
       icon: <Github size={20} />,
       username: "altantheprodigy",
       href: "https://github.com/altantheprodigy?tab=repositories", // Masukkan link FB kamu
-      color: "hover:text-zinc-400",
+      color: "hover:text-zinc-500",
     },
     {
       name: "LinkedIn",
       icon: <LinkedinIcon size={20} />,
       username: "Altan Assyfa Naura Putra",
       href: "https://www.linkedin.com/in/altan-assyfa-naura-putra-41aa22290/", // Masukkan link FB kamu
-      color: "hover:text-[#0A66C2",
+      color: "hover:text-[#0A66C2]",
     },
     {
       name: "Email",
@@ -41,14 +41,14 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="bg-hitam-utama w-full px-4 py-4 md:px-36">
+    <footer className="bg-white w-full px-4 py-4 md:px-36">
       {/* 1. Garis Pemisah (Horizontal Rule) */}
       <hr className="border-border-nav mb-12" />
 
       <div className="flex flex-col items-center gap-10">
         {/* 3. Bagian Reach Me Out */}
         <div className="flex flex-col items-center gap-4">
-          <span className="font-utama text-sm font-medium text-white">
+          <span className="font-utama text-sm font-medium text-zinc-900">
             Reach me out
           </span>
           <div className="flex gap-6">
@@ -56,7 +56,7 @@ const Footer = () => {
               <a
                 key={social.name}
                 href={social.href}
-                className={`group flex items-center text-white transition-all duration-500 ease-in-out ${social.color}`}
+                className={`group flex items-center text-zinc-900 transition-all duration-500 ease-in-out ${social.color}`}
               >
                 <div className="relative z-10 flex items-center justify-center">
                   {social.icon}

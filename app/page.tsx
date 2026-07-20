@@ -20,57 +20,42 @@ import {
   VercelIcon,
 } from "@/components/TechStackIcon";
 import ProjectCard from "@/components/ProjectCard";
+import ProjectMarquee from "@/components/ProjectMarquee";
 import ExperienceCard from "@/components/ExperienceCard";
 import AwardCard from "@/components/AwardCard";
+import WhatIDoSection from "@/components/WhatIDoSection";
+import ExperienceEducationTabs from "@/components/ExperienceEducationTabs";
 
 export default function Home() {
   const skills = [
     {
       name: "Flutter",
-      level: "Advance",
-      logo: (
-        <FlutterIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#61DAFB]" />
-      ),
+      logo: <FlutterIcon className="h-12 w-12 text-[#61DAFB]" />,
       color: "#61DAFB",
     },
     {
       name: "Laravel",
-      level: "Intermediate",
-      logo: (
-        <LaravelIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
-      ),
+      logo: <LaravelIcon className="h-12 w-12 text-[#FF2D20]" />,
       color: "#FF2D20",
     },
     {
       name: "Next.js ",
-      level: "Advance",
-      logo: (
-        <NextIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
-      ),
-      color: "#FFFFFF",
+      logo: <NextIcon className="h-12 w-12 text-zinc-900" />,
+      color: "#18181b",
     },
     {
       name: "Dart",
-      level: "Advance",
-      logo: (
-        <DartIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#0175C2]" />
-      ),
+      logo: <DartIcon className="h-12 w-12 text-[#0175C2]" />,
       color: "#0175C2",
     },
     {
       name: "PHP",
-      level: "Intermediate",
-      logo: (
-        <PhpIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#777BB4]" />
-      ),
+      logo: <PhpIcon className="h-12 w-12 text-[#777BB4]" />,
       color: "#777BB4",
     },
     {
       name: "Tailwind CSS",
-      level: "Advance",
-      logo: (
-        <TailWindIcon className="h-8 w-8 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
-      ),
+      logo: <TailWindIcon className="h-12 w-12 text-[#06B6D4]" />,
       color: "#06B6D4",
     },
   ];
@@ -89,31 +74,31 @@ export default function Home() {
         {
           name: "Next.js",
           logo: (
-            <NextIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+            <NextIcon className="h-6 w-6 text-zinc-900" />
           ),
         },
         {
           name: "TypeScript",
           logo: (
-            <TypescriptIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3178C6]" />
+            <TypescriptIcon className="h-6 w-6 text-[#3178C6]" />
           ),
         },
         {
           name: "Tailwind CSS",
           logo: (
-            <TailWindIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+            <TailWindIcon className="h-6 w-6 text-[#06B6D4]" />
           ),
         },
         {
           name: "Supabase",
           logo: (
-            <SupabaseIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3ECF8E]" />
+            <SupabaseIcon className="h-6 w-6 text-[#3ECF8E]" />
           ),
         },
         {
           name: "Vercel",
           logo: (
-            <VercelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />
+            <VercelIcon className="h-6 w-6 text-zinc-900" />
           ),
         },
       ],
@@ -131,25 +116,25 @@ export default function Home() {
         {
           name: "Flutter",
           logo: (
-            <FlutterIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+            <FlutterIcon className="h-6 w-6 text-[#06B6D4]" />
           ),
         },
         {
           name: "Laravel",
           logo: (
-            <LaravelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
+            <LaravelIcon className="h-6 w-6 text-[#FF2D20]" />
           ),
         },
         {
           name: "Figma",
           logo: (
-            <FigmaIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#F24E1E]" />
+            <FigmaIcon className="h-6 w-6 text-[#F24E1E]" />
           ),
         },
         {
           name: "MySQL",
           logo: (
-            <MySqlIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#4479A1]" />
+            <MySqlIcon className="h-6 w-6 text-[#4479A1]" />
           ),
         },
       ],
@@ -167,25 +152,25 @@ export default function Home() {
         {
           name: "Flutter",
           logo: (
-            <FlutterIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />
+            <FlutterIcon className="h-6 w-6 text-[#06B6D4]" />
           ),
         },
         {
           name: "Laravel",
           logo: (
-            <LaravelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FF2D20]" />
+            <LaravelIcon className="h-6 w-6 text-[#FF2D20]" />
           ),
         },
         {
           name: "Figma",
           logo: (
-            <FigmaIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#F24E1E]" />
+            <FigmaIcon className="h-6 w-6 text-[#F24E1E]" />
           ),
         },
         {
           name: "MySQL",
           logo: (
-            <MySqlIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#4479A1]" />
+            <MySqlIcon className="h-6 w-6 text-[#4479A1]" />
           ),
         },
       ],
@@ -204,23 +189,23 @@ export default function Home() {
       techStacks: [
         {
           name: "Next.js",
-          logo: <NextIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />,
+          logo: <NextIcon className="h-6 w-6 text-zinc-900" />,
         },
         {
           name: "TypeScript",
-          logo: <TypescriptIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3178C6]" />,
+          logo: <TypescriptIcon className="h-6 w-6 text-[#3178C6]" />,
         },
         {
           name: "Tailwind CSS",
-          logo: <TailWindIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#06B6D4]" />,
+          logo: <TailWindIcon className="h-6 w-6 text-[#06B6D4]" />,
         },
         {
           name: "Supabase",
-          logo: <SupabaseIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#3ECF8E]" />,
+          logo: <SupabaseIcon className="h-6 w-6 text-[#3ECF8E]" />,
         },
         {
           name: "Vercel",
-          logo: <VercelIcon className="h-6 w-6 text-zinc-500 transition-colors duration-500 group-hover:text-[#FFFFFF]" />,
+          logo: <VercelIcon className="h-6 w-6 text-zinc-900" />,
         },
       ],
       link: "https://floraverse.vercel.app/",
@@ -229,12 +214,8 @@ export default function Home() {
 
   return (
     // Outer container: Hapus padding dan gap di sini agar Hero bisa full-screen
-    <div className="bg-hitam-utama selection:bg-brand-blue/30 relative min-h-screen overflow-hidden font-sans text-white selection:text-white">
-      {/* Background Ambient Glows */}
-      <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full overflow-hidden">
-        <div className="bg-brand-blue/20 absolute -top-[20%] -left-[10%] h-[50%] w-[50%] rounded-full blur-[120px]" />
-        <div className="bg-brand-green/10 absolute top-[20%] -right-[10%] h-[60%] w-[40%] rounded-full blur-[120px]" />
-      </div>
+    <div className="bg-white selection:bg-brand-blue/30 relative min-h-screen overflow-hidden font-sans text-zinc-900 selection:text-zinc-900">
+
 
       {/* 1. HERO SECTION (Memenuhi Layar 100vh) */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center">
@@ -243,9 +224,9 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-8 rotate-[-2deg] rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm shadow-lg backdrop-blur-md"
+          className="mb-8 rotate-[-2deg] rounded-full border border-zinc-200 bg-zinc-50 px-4 py-1.5 text-sm shadow-lg backdrop-blur-md"
         >
-          <span className="from-brand-green to-brand-blue bg-gradient-to-r bg-clip-text font-medium text-transparent">
+          <span className="from-brand-blue to-brand-blue1 bg-gradient-to-r bg-clip-text font-medium text-transparent">
             Available for new opportunities
           </span>
         </motion.div>
@@ -255,13 +236,13 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="font-utama text-5xl font-extrabold tracking-tighter text-white md:text-7xl lg:text-8xl"
+          className="font-utama text-5xl font-extrabold tracking-tighter text-zinc-900 md:text-7xl lg:text-8xl"
         >
           Hi, I'm <br className="md:hidden" />
           <span className="text-gradient-altan relative drop-shadow-lg">
             Altan Putra
             <motion.span
-              className="from-brand-green to-brand-blue absolute -bottom-2 left-0 h-[6px] w-full rounded-full bg-gradient-to-r opacity-50 blur-sm"
+              className="from-brand-blue to-brand-blue1 absolute -bottom-2 left-0 h-[6px] w-full rounded-full bg-gradient-to-r opacity-50 blur-sm"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -274,13 +255,13 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="mt-8 flex flex-col items-center text-lg font-light text-zinc-400 md:flex-row md:text-2xl"
+          className="mt-8 flex flex-col items-center text-lg font-light text-zinc-500 md:flex-row md:text-2xl"
         >
           <span className="text-brand-blue font-medium drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
             Mobile Development
           </span>
           <span className="mx-4 hidden text-zinc-600 md:inline">|</span>
-          <span className="text-brand-green mt-2 font-medium drop-shadow-[0_0_10px_rgba(16,185,129,0.3)] md:mt-0">
+          <span className="text-brand-blue mt-2 font-medium drop-shadow-[0_0_10px_rgba(16,185,129,0.3)] md:mt-0">
             Web Development
           </span>
         </motion.p>
@@ -289,7 +270,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-6 max-w-xl text-base text-balance text-zinc-400 md:text-lg"
+          className="mt-6 max-w-xl text-base text-balance text-zinc-500 md:text-lg"
         >
           Crafting intuitive, performant, and premium digital experiences across
           mobile and web platforms.
@@ -306,18 +287,16 @@ export default function Home() {
             href="#about"
             className="group relative flex w-full max-w-[220px] items-center justify-center gap-2 overflow-hidden rounded-full p-[2px] font-semibold transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] active:scale-95 md:w-fit"
           >
-            {/* Animated Border Gradient */}
-            <span className="from-brand-blue via-brand-green to-brand-blue absolute inset-0 animate-[spin_4s_linear_infinite] bg-gradient-to-r" />
+            <span className="from-brand-blue via-brand-blue1 to-brand-blue absolute inset-0 animate-[spin_4s_linear_infinite] bg-gradient-to-r" />
 
-            {/* Inner Content */}
-            <span className="bg-hitam-utama group-hover:bg-hitam-utama/40 relative flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-[16px] transition-all duration-300 group-hover:backdrop-blur-md">
-              <span className="relative z-10 text-white transition-colors group-hover:text-white">
+            <span className="bg-white group-hover:bg-zinc-100 relative flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-[16px] transition-all duration-300">
+              <span className="relative z-10 text-zinc-900 font-medium">
                 Start Exploring
               </span>
 
               <RocketIcon
                 size={18}
-                className="text-brand-blue group-hover:text-brand-green relative z-10 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="text-brand-blue group-hover:text-brand-blue relative z-10 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </span>
           </a>
@@ -356,11 +335,11 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group relative h-48 w-48 shrink-0 md:h-64 md:w-64"
           >
-            {/* Animated Glow Behind Avatar */}
-            <div className="from-brand-green to-brand-blue absolute -inset-2 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] rounded-full bg-gradient-to-br opacity-30 blur-xl transition duration-1000 group-hover:opacity-60"></div>
-            <div className="from-brand-green via-brand-blue absolute -inset-1 animate-[spin_6s_linear_infinite] rounded-full bg-gradient-to-br to-purple-500 opacity-50 blur-md transition duration-500 group-hover:opacity-100"></div>
+            {/* Static Glow Behind Avatar to save performance */}
+            <div className="from-brand-blue to-brand-blue absolute -inset-2 rounded-full bg-gradient-to-br opacity-30 blur-lg transition duration-1000 group-hover:opacity-60"></div>
+            <div className="from-brand-blue via-brand-blue to-brand-blue1 absolute -inset-1 rounded-full bg-gradient-to-br opacity-50 blur-md transition-all duration-700 group-hover:rotate-12 group-hover:scale-105 group-hover:opacity-100"></div>
 
-            <div className="bg-hitam-utama relative z-10 h-full w-full rounded-full p-[4px]">
+            <div className="bg-white relative z-10 h-full w-full rounded-full p-[4px]">
               <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#1a1a1a]">
                 <Image
                   src="/my-foto.jpeg"
@@ -381,7 +360,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl font-bold tracking-tight text-white md:text-4xl"
+                className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl"
               >
                 About Me
               </motion.h2>
@@ -390,7 +369,7 @@ export default function Home() {
                 whileInView={{ width: 64 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="bg-brand-green h-1.5 rounded-full"
+                className="bg-brand-blue h-1.5 rounded-full"
               />
             </div>
 
@@ -399,19 +378,19 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="max-w-2xl text-[16px] leading-relaxed text-zinc-400 md:text-[18px]"
+              className="max-w-2xl text-[16px] leading-relaxed text-zinc-500 md:text-[18px]"
             >
               A passionate{" "}
-              <span className="font-semibold text-white drop-shadow-md">
+              <span className="font-semibold text-zinc-900 drop-shadow-md">
                 Computer Science
               </span>{" "}
               student at{" "}
-              <span className="hover:text-brand-blue cursor-pointer font-semibold text-white transition-colors">
+              <span className="hover:text-brand-blue cursor-pointer font-semibold text-zinc-900 transition-colors">
                 UDINUS Semarang
               </span>{" "}
               who crafts digital solutions through{" "}
               <span className="text-brand-blue font-semibold">Mobile</span> and{" "}
-              <span className="text-brand-green font-semibold">Web</span>{" "}
+              <span className="text-brand-blue font-semibold">Web</span>{" "}
               Development. I focus on exploring modern technologies to build
               highly functional, visually stunning, and responsive applications
               that leave a lasting impression.
@@ -440,14 +419,14 @@ export default function Home() {
                 download
                 className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-[15px] font-semibold transition-all duration-300 active:scale-95 sm:w-fit"
               >
-                <span className="from-brand-blue to-brand-green absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100" />
-                <span className="bg-hitam-utama group-hover:bg-hitam-utama/80 relative flex w-full items-center gap-2 rounded-full px-5 py-2 transition-colors">
-                  <span className="bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-transparent">
+                <span className="from-brand-blue to-brand-blue absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100" />
+                <span className="bg-white group-hover:bg-white/80 relative flex w-full items-center gap-2 rounded-full px-5 py-2 transition-colors">
+                  <span className="text-zinc-900 group-hover:text-brand-blue font-bold transition-colors">
                     Download CV
                   </span>
                   <FileDown
                     size={18}
-                    className="group-hover:text-brand-green text-white transition-all duration-300 group-hover:translate-y-0.5"
+                    className="group-hover:text-brand-blue text-zinc-900 transition-all duration-300 group-hover:translate-y-0.5"
                   />
                 </span>
               </a>
@@ -463,82 +442,9 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="flex flex-col gap-8"
         >
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
-              Experiences & Educations
-            </h2>
-            <div className="bg-brand-green h-1 w-20 rounded-full md:w-80"></div>
-          </div>
 
-          {/* Grid: 1 Kolom di HP, 2 Kolom di Desktop (LG) */}
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            {/* Kolom Experiences */}
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center justify-center gap-3 md:justify-start">
-                <div className="bg-brand-blue h-2 w-2 rounded-full"></div>
-                <h3 className="text-[18px] font-bold tracking-wider text-white uppercase">
-                  Experiences
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 gap-5">
-                <ExperienceCard
-                  role="Mobile Developer"
-                  status="Intern"
-                  company="CAN Creative | Jasa Pembuatan Web dan Aplikasi Mobile"
-                  location="Semarang, Indonesia"
-                  period="October 2024 - March 2025"
-                  description={[
-                    "Responsible for developing and maintaining mobile applications using the Flutter framework.",
-                  ]}
-                />
-                <ExperienceCard
-                  role="Mobile Developer"
-                  status="Team Project"
-                  company="SMK Raden Umar Said Kudus"
-                  location="Kudus, Indonesia"
-                  period="March - September 2024"
-                  description={[
-                    "Collaborated in a team to develop mobile application features using Flutter. Ensured optimal performance and responsive layout for Android and iOS platforms.",
-                  ]}
-                />
-                {/* Tambahkan Card lainnya sesuai kebutuhan */}
-              </div>
-            </div>
-
-            {/* Kolom Educations */}
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center justify-center gap-3 md:justify-start">
-                <div className="bg-brand-green h-2 w-2 rounded-full"></div>
-                <h3 className="text-[18px] font-bold tracking-wider text-white uppercase">
-                  Educations
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 gap-5">
-                <ExperienceCard
-                  role="Informatics Engineering"
-                  status="Student"
-                  company="Dian Nuswantoro University"
-                  location="Semarang, Indonesia"
-                  period="2025 - Present"
-                  description={[
-                    "Continuing my education at Dian Nuswatara University in Semarang, improving my skills and experience here.",
-                  ]}
-                />
-                <ExperienceCard
-                  role="Software and game engineering"
-                  status="Alumni"
-                  company="Raden Umar Said Vocational High School"
-                  location="Kudus, Indonesia"
-                  period="2022 - 2025"
-                  description={[
-                    "Graduated with a grade of 89 in Software Engineering and completed a final project creating the RUS Consign Mobile application.",
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
+          {/* Tab Layout for Experiences & Educations */}
+          <ExperienceEducationTabs />
         </motion.div>
 
         {/* Awards & Achievements Section */}
@@ -550,10 +456,10 @@ export default function Home() {
           className="flex flex-col gap-8"
         >
           <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
+            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
               Awards & Achievements
             </h2>
-            <div className="h-1 w-20 rounded-full bg-amber-500 md:w-80"></div>
+            <div className="h-1 w-20 rounded-full bg-brand-blue md:w-80"></div>
           </div>
 
           <div className="flex flex-col gap-10">
@@ -569,57 +475,16 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
-          className="mt-10 flex flex-col gap-20 lg:flex-row lg:items-stretch lg:gap-7"
+          className="mt-16 flex flex-col gap-10"
         >
-          {/* Teks Judul & Deskripsi */}
-          <div className="flex flex-col items-center gap-3 text-center lg:flex-1 lg:items-start lg:text-left">
-            <h3 className="text-[28px] font-medium text-white md:text-[32px]">
+          <div className="flex flex-col items-center gap-1 md:items-start">
+            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
               What I Do
-            </h3>
-            <p className="text-text-body max-w-md text-[16px] leading-relaxed font-normal md:text-[18px]">
-              Exploring modern technology to build functional, responsive{" "}
-              <span className="text-brand-blue font-medium">Applications</span>{" "}
-              and <span className="text-brand-green font-medium">Websites</span>{" "}
-              that provide an optimal user experience.
-            </p>
+            </h2>
+            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-32"></div>
           </div>
 
-          {/* Container Kartu Service */}
-          {/* Di HP: Stack vertikal dengan gap besar karena ada ikon -top-12 */}
-          {/* Di Tablet: Grid 2 kolom */}
-          {/* Di Laptop: Flex 3 kolom */}
-          <div className="grid flex-[4] grid-cols-1 gap-x-6 gap-y-20 md:grid-cols-2 lg:flex lg:flex-row">
-            <div className="flex-1">
-              <ServiceCard
-                logo={
-                  <FlutterIcon className="h-10 w-10 text-zinc-500 group-hover:text-[#06B6D4]" />
-                }
-                title="Mobile Development"
-                desc="Developing high-performance apps with Flutter."
-                color="#06B6D4"
-              />
-            </div>
-            <div className="flex-1">
-              <ServiceCard
-                logo={
-                  <NextIcon className="h-6 w-6 text-zinc-500 group-hover:text-[#FFFFFF]" />
-                }
-                title="Web Development"
-                desc="Building modern web apps with Next.js."
-                color="#FFFFFF"
-              />
-            </div>
-            <div className="flex-1">
-              <ServiceCard
-                logo={
-                  <FigmaIcon className="h-6 w-6 text-zinc-500 group-hover:text-[#F24E1E]" />
-                }
-                title="UI Design"
-                desc="Creating interactive UI using Figma."
-                color="#F24E1E"
-              />
-            </div>
-          </div>
+          <WhatIDoSection />
         </motion.div>
 
         {/* Tech Stack Section */}
@@ -631,40 +496,30 @@ export default function Home() {
           className="flex flex-col gap-6"
         >
           <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
+            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
               Tech Stack
             </h2>
-            <div className="bg-brand-green h-1 w-20 rounded-full md:w-50"></div>
+            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-50"></div>
           </div>
 
-          {/* Grid Dinamis: 
-      1 Kolom di HP sangat kecil, 
-      2 Kolom di HP standar (sm), 
-      3 Kolom di Laptop (lg) 
-  */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                style={{ "--hover-color": skill.color } as React.CSSProperties}
-                className="group bg-bg-card relative flex w-full flex-row items-center gap-4 rounded-2xl border border-transparent px-4 py-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[var(--hover-color)] hover:shadow-[0_10px_40px_-10px_var(--hover-color)] md:gap-6 md:px-6 md:py-5"
-              >
-                {/* Ukuran Box Logo: Sedikit lebih kecil di mobile agar tidak sesak */}
-                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform duration-500 group-hover:rotate-6 md:h-14 md:w-14">
-                  {skill.logo}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  {/* Ukuran Font: text-base di mobile, text-lg di desktop */}
-                  <h3 className="text-[16px] font-bold text-white transition-colors duration-300 group-hover:text-[var(--hover-color)] md:text-[18px]">
+          {/* Horizontal Scrolling Marquee */}
+          <div className="relative mt-4 flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-6">
+            <div className="flex w-max items-center gap-10 sm:gap-16 pr-10 sm:pr-16 animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused]">
+              {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
+                <div
+                  key={index}
+                  className="group flex flex-col items-center gap-4"
+                  style={{ "--hover-color": skill.color } as React.CSSProperties}
+                >
+                  <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--hover-color)] group-hover:shadow-[0_10px_30px_-10px_var(--hover-color)]">
+                    {skill.logo}
+                  </div>
+                  <h3 className="text-[15px] font-bold tracking-wide text-zinc-900 transition-colors duration-300 group-hover:text-[var(--hover-color)]">
                     {skill.name}
                   </h3>
-                  <span className="bg-brand-blue/10 w-fit rounded-full px-2.5 py-0.5 text-[12px] font-semibold text-white group-hover:text-[var(--hover-color)] md:text-[14px]">
-                    {skill.level}
-                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -678,35 +533,14 @@ export default function Home() {
           className="flex flex-col gap-8 md:gap-12"
         >
           <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-white md:text-[32px]">
+            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
               My Projects
             </h2>
-            <div className="bg-brand-green h-1 w-20 rounded-full md:w-50"></div>
+            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-50"></div>
           </div>
 
-          <div className="flex flex-col gap-10 md:gap-16">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
+          <ProjectMarquee projects={projects} />
 
-          {/* Tombol See More: w-full di mobile */}
-          <a
-            href="/AllProjects"
-            className="group bg-bg-card relative mt-2 flex w-full cursor-pointer flex-row items-center justify-center gap-4 rounded-[12px] px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-[#34394A] hover:shadow-lg md:w-fit md:py-3"
-          >
-            <div className="transition-transform duration-300 group-hover:scale-110">
-              <Image
-                src="/ViewList.png"
-                alt="ViewList"
-                width={20}
-                height={20}
-              />
-            </div>
-            <p className="font-utama text-text-body text-[15px] font-medium transition-colors duration-300 group-hover:text-white">
-              See More
-            </p>
-          </a>
         </motion.div>
 
         <Footer />

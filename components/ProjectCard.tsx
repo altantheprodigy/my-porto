@@ -30,10 +30,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop + Glassmorphism */
-    <div className="group hover:border-brand-blue/30 flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] md:flex-row md:items-stretch md:gap-8 md:p-6">
+    <div className="group hover:border-brand-blue/30 flex flex-col gap-6 rounded-3xl border border-zinc-200 bg-zinc-50 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] md:flex-row md:items-stretch md:gap-8 md:p-6">
       {/* Kotak Gambar */}
       {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
-      <div className="group-hover:shadow-brand-blue/10 w-full flex-1 overflow-hidden rounded-2xl bg-black/40 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
+      <div className="group-hover:shadow-brand-blue/10 w-full flex-1 overflow-hidden rounded-2xl bg-white/50 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
         <div className="relative aspect-video w-full overflow-hidden rounded-xl">
           <Image
             src={imageSrc}
@@ -49,10 +49,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* 3. PERBAIKAN: Hapus padding vertikal py-2 di mobile agar lebih rapat */}
       <div className="flex flex-[2] flex-col md:py-2">
         <div className="flex flex-col gap-3 text-center md:text-left">
-          <p className="font-utama text-[14px] font-medium text-zinc-400 md:text-[15px]">
+          <p className="font-utama text-[14px] font-medium text-zinc-500 md:text-[15px]">
             {category}
           </p>
-          <h3 className="text-[20px] font-bold text-white md:text-[24px]">
+          <h3 className="text-[20px] font-bold text-zinc-900 md:text-[24px]">
             {title}
           </h3>
           <p className="font-utama text-text-body line-clamp-4 text-[14px] leading-relaxed md:text-[15px]">
@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={downloadLink}
             download={isDownload ? true : undefined}
             target={isDownload ? "_self" : "_blank"}
-            className="group bg-bg-card text-brand-blue relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:text-white active:scale-95 md:w-fit md:text-[16px]"
+            className="group bg-brand-blue text-white relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:bg-brand-blue1 active:scale-95 md:w-fit md:text-[16px]"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
             <span className="relative z-10">{downloadText}</span>
@@ -86,10 +86,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {techStacks.map((tech, index) => (
                   <div
                     key={index}
-                    className="group bg-bg-card relative flex shrink-0 items-center justify-center rounded-xl px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
+                    className="group bg-white relative flex shrink-0 items-center justify-center rounded-xl px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
                   >
                     {/* Tooltip tetap berfungsi baik di desktop (hover) */}
-                    <span className="bg-bg-card pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
+                    <span className="bg-white pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-zinc-900 opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
                       {tech.name}
                       <svg
                         className="absolute top-full left-0 h-2 w-full text-zinc-800"
