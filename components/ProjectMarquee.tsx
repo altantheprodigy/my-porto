@@ -35,7 +35,8 @@ export default function ProjectMarquee({ projects }: { projects: Project[] }) {
           {duplicatedProjects.map((project, index) => (
             <div
               key={index}
-              className="group relative flex w-[300px] shrink-0 flex-col overflow-hidden rounded-[32px] border border-zinc-200 bg-zinc-50 transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/30 hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.2)] md:w-[380px]"
+              className="group relative flex w-[300px] shrink-0 flex-col overflow-hidden rounded-[32px] border border-zinc-200 bg-zinc-50 transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/30 hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.2)] active:-translate-y-2 active:border-brand-blue/30 active:shadow-[0_0_30px_-10px_rgba(59,130,246,0.2)] md:w-[380px]"
+              onTouchStart={() => {}}
             >
               {/* Image Section */}
               <div className="relative mx-6 mt-6 h-[180px] overflow-hidden rounded-[20px] border border-zinc-200 bg-white/50 shadow-inner md:h-[200px]">
@@ -60,7 +61,7 @@ export default function ProjectMarquee({ projects }: { projects: Project[] }) {
               <div className="mt-auto px-6 pb-6">
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="flex w-full items-center justify-center rounded-xl bg-white border border-zinc-200 py-3 text-[14px] font-semibold text-zinc-900 transition-colors hover:bg-brand-blue hover:text-white group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]"
+                  className="flex w-full items-center justify-center rounded-xl bg-white border border-zinc-200 py-3 text-[14px] font-semibold text-zinc-900 transition-colors hover:bg-brand-blue hover:text-white group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] group-active:bg-brand-blue group-active:text-white group-active:border-brand-blue group-active:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]"
                 >
                   See Detail
                 </button>

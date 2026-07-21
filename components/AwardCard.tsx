@@ -43,6 +43,15 @@ export default function AwardCard({
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const handleDragEnd = (e: any, { offset, velocity }: any) => {
+    const swipe = offset.x;
+    if (swipe < -50) {
+      handleNext();
+    } else if (swipe > 50) {
+      handlePrev();
+    }
+  };
+
   return (
     <div className="group mx-auto flex w-full max-w-[600px] flex-col gap-6 rounded-3xl border border-zinc-200 bg-white p-4 md:p-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(37,99,235,0.15)]">
       
@@ -56,7 +65,11 @@ export default function AwardCard({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="relative h-full w-full"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
+              className="relative h-full w-full cursor-grab active:cursor-grabbing"
             >
               <Image
                 src={images[currentIndex]}
@@ -72,13 +85,13 @@ export default function AwardCard({
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-zinc-900 opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white group-hover/carousel:opacity-100 shadow-md"
+                className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-zinc-900 opacity-100 md:opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white md:group-hover/carousel:opacity-100 shadow-md z-10"
               >
                 <ChevronLeft size={16} />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-zinc-900 opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white group-hover/carousel:opacity-100 shadow-md"
+                className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-zinc-900 opacity-100 md:opacity-0 backdrop-blur-md transition-all duration-300 hover:bg-white md:group-hover/carousel:opacity-100 shadow-md z-10"
               >
                 <ChevronRight size={16} />
               </button>

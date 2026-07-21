@@ -9,7 +9,7 @@ const services = [
     title: "Mobile Development",
     desc: "Building native-like, high-performance mobile applications using Flutter. From seamless animations to robust state management, I craft user experiences that feel intuitive and engaging across both iOS and Android platforms.",
     logo: (
-      <FlutterIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-[#61DAFB]" />
+      <FlutterIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-[#61DAFB] group-active:scale-110 group-active:text-[#61DAFB]" />
     ),
   },
   {
@@ -17,7 +17,7 @@ const services = [
     title: "Web Development",
     desc: "Creating modern, responsive, and blazing-fast web applications using Next.js and React. Focusing on clean code, optimal performance, and dynamic user interfaces to deliver the best web experiences.",
     logo: (
-      <NextIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-zinc-900" />
+      <NextIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-zinc-900 group-active:scale-110 group-active:text-zinc-900" />
     ),
   },
   {
@@ -25,7 +25,7 @@ const services = [
     title: "UI Design",
     desc: "Designing interactive and visually appealing user interfaces using Figma. Prioritizing user-centric design principles to ensure that every product is not only beautiful but also easy to navigate and accessible.",
     logo: (
-      <FigmaIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-[#F24E1E]" />
+      <FigmaIcon className="h-10 w-10 text-zinc-300 transition-all duration-500 group-hover:scale-110 group-hover:text-[#F24E1E] group-active:scale-110 group-active:text-[#F24E1E]" />
     ),
   },
 ];
@@ -56,10 +56,11 @@ export default function WhatIDoSection() {
         <motion.div
           key={service.id}
           variants={itemVariants}
-          className="group relative flex flex-col gap-6 rounded-3xl border border-brand-blue/20 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.15)]"
+          className="group relative flex flex-col gap-6 rounded-3xl border border-brand-blue/20 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.15)] active:-translate-y-2 active:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.15)]"
+          onTouchStart={() => {}} // This forces mobile Safari to respect active state
         >
           {/* Logo Container */}
-          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-100 transition-colors duration-500 group-hover:bg-brand-blue/5">
+          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-zinc-50 border border-zinc-100 transition-colors duration-500 group-hover:bg-brand-blue/5 group-active:bg-brand-blue/5">
             {service.logo}
           </div>
 

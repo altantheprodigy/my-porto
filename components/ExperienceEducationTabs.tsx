@@ -62,7 +62,7 @@ export default function ExperienceEducationTabs() {
             key={tab}
             onClick={() => setActiveTab(tab as any)}
             className={`relative z-10 flex-1 rounded-xl py-3 px-2 sm:px-6 text-[14px] sm:text-[15px] font-bold capitalize transition-all duration-300 ${
-              activeTab === tab ? "text-white" : "text-zinc-500 hover:text-zinc-900"
+              activeTab === tab ? "text-white" : "text-zinc-500 hover:text-zinc-900 active:text-zinc-900"
             }`}
           >
             {activeTab === tab && (

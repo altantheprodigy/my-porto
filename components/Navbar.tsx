@@ -38,9 +38,9 @@ const Navbar = () => {
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center md:w-1/4">
+          <div className="flex items-center z-10">
             <Link
               href="/"
               className="font-utama group flex items-center gap-2 text-xl font-bold tracking-tighter text-zinc-900"
@@ -52,35 +52,21 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Navigasi Desktop */}
-          <div className="hidden items-center justify-center gap-8 md:flex md:w-1/2">
+          {/* Navigasi Tengah (Desktop & Mobile) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-8 z-10">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900"
+                className="text-xs font-medium text-zinc-500 transition-colors hover:text-zinc-900 sm:text-sm active:text-zinc-900"
               >
                 {item.name}
               </Link>
             ))}
           </div>
 
-          {/* Navigasi Mobile & Button */}
-          <div className="flex items-center justify-end gap-3 md:w-1/4 sm:gap-4">
-            {/* Mobile Links */}
-            <div className="flex items-center gap-3 md:hidden">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-xs font-medium text-zinc-500 transition-colors hover:text-zinc-900 sm:text-sm"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            
-            {/* Button Resume */}
+          {/* Button Resume Kanan */}
+          <div className="flex items-center justify-end z-10">
             <a
               href="/CV_Altan_Assyfa_Naura_Putra_Updated.pdf"
               download

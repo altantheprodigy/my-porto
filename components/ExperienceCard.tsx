@@ -18,10 +18,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group hover:border-brand-blue/30 relative flex h-full flex-col gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)]">
+    <div 
+      className="group hover:border-brand-blue/30 relative flex h-full flex-col gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] active:border-brand-blue/30 active:-translate-y-2 active:bg-white active:shadow-[0_10px_30px_rgba(59,130,246,0.1)]"
+      onTouchStart={() => {}}
+    >
       {/* Header: Role & Status */}
       <div className="flex flex-row items-center justify-between gap-4">
-        <h3 className="group-hover:text-accent-blue font-utama text-[20px] font-bold text-zinc-900 transition-colors duration-300">
+        <h3 className="group-hover:text-accent-blue group-active:text-accent-blue font-utama text-[20px] font-bold text-zinc-900 transition-colors duration-300">
           {role}
         </h3>
         <span className="bg-brand-blue/10 font-utama text-brand-blue rounded-full px-4 py-1 text-[13px] font-bold tracking-wider uppercase">
@@ -40,7 +43,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <span>{location}</span>
         </div>
       </div>
-      <p className="text-text-body text-[14px] leading-relaxed group-hover:text-zinc-600">
+      <p className="text-text-body text-[14px] leading-relaxed group-hover:text-zinc-600 group-active:text-zinc-600">
         {description}
       </p>
 

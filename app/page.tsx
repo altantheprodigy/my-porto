@@ -419,14 +419,14 @@ export default function Home() {
                 download
                 className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-[15px] font-semibold transition-all duration-300 active:scale-95 sm:w-fit"
               >
-                <span className="from-brand-blue to-brand-blue absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100" />
-                <span className="bg-white group-hover:bg-white/80 relative flex w-full items-center gap-2 rounded-full px-5 py-2 transition-colors">
-                  <span className="text-zinc-900 group-hover:text-brand-blue font-bold transition-colors">
+                <span className="from-brand-blue to-brand-blue absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100 group-active:opacity-100" />
+                <span className="bg-white group-hover:bg-white/80 group-active:bg-white/80 relative flex w-full items-center justify-center gap-2 rounded-full px-5 py-2 transition-colors">
+                  <span className="text-zinc-900 group-hover:text-brand-blue group-active:text-brand-blue font-bold transition-colors">
                     Download CV
                   </span>
                   <FileDown
                     size={18}
-                    className="group-hover:text-brand-blue text-zinc-900 transition-all duration-300 group-hover:translate-y-0.5"
+                    className="group-hover:text-brand-blue group-active:text-brand-blue text-zinc-900 transition-all duration-300 group-hover:translate-y-0.5 group-active:translate-y-0.5"
                   />
                 </span>
               </a>
