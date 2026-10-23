@@ -50,31 +50,48 @@ const educations = [
   },
 ];
 
+import { Briefcase, GraduationCap } from "lucide-react";
+
 export default function ExperienceEducationTabs() {
   const [activeTab, setActiveTab] = useState<"experiences" | "educations">("experiences");
 
   return (
-    <div className="flex w-full flex-col gap-8 md:gap-12 mt-6">
+    <div className="flex w-full flex-col gap-8 md:gap-10 mt-4">
       {/* Tab Selectors */}
-      <div className="relative flex flex-row items-center justify-center rounded-2xl bg-zinc-50 p-1.5 mx-auto w-full max-w-[400px] border border-zinc-200 shadow-lg">
-        {["experiences", "educations"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab as any)}
-            className={`relative z-10 flex-1 rounded-xl py-3 px-2 sm:px-6 text-[14px] sm:text-[15px] font-bold capitalize transition-all duration-300 ${
-              activeTab === tab ? "text-white" : "text-zinc-500 hover:text-zinc-900 active:text-zinc-900"
-            }`}
-          >
-            {activeTab === tab && (
-              <motion.div
-                layoutId="active-tab"
-                className={`absolute inset-0 -z-10 rounded-xl shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] ${tab === "experiences" ? "bg-brand-blue" : "bg-brand-blue"}`}
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
-            )}
-            {tab}
-          </button>
-        ))}
+      <div className="relative flex flex-row items-center justify-center rounded-full bg-zinc-100/90 p-1.5 mx-auto w-full max-w-[380px] border border-zinc-200 shadow-sm">
+        <button
+          onClick={() => setActiveTab("experiences")}
+          className={`relative z-10 flex flex-1 items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs sm:text-sm font-bold transition-all duration-300 ${
+            activeTab === "experiences" ? "text-white" : "text-zinc-500 hover:text-zinc-900"
+          }`}
+        >
+          {activeTab === "experiences" && (
+            <motion.div
+              layoutId="active-tab"
+              className="absolute inset-0 -z-10 rounded-full bg-zinc-900 shadow-md"
+              transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+            />
+          )}
+          <Briefcase size={15} />
+          <span>Experience</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab("educations")}
+          className={`relative z-10 flex flex-1 items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs sm:text-sm font-bold transition-all duration-300 ${
+            activeTab === "educations" ? "text-white" : "text-zinc-500 hover:text-zinc-900"
+          }`}
+        >
+          {activeTab === "educations" && (
+            <motion.div
+              layoutId="active-tab"
+              className="absolute inset-0 -z-10 rounded-full bg-zinc-900 shadow-md"
+              transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+            />
+          )}
+          <GraduationCap size={16} />
+          <span>Education</span>
+        </button>
       </div>
 
       {/* Tab Content */}

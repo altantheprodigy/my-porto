@@ -1,15 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import Footer from "@/components/Footer";
-import ServiceCard from "@/components/ServiceCard";
 import Image from "next/image";
-import { ArrowBigDown, FileDown, Rocket, RocketIcon } from "lucide-react";
+import { ArrowRight, RocketIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import {
   DartIcon,
   FigmaIcon,
   FlutterIcon,
-  HiveIcon,
   LaravelIcon,
   MySqlIcon,
   NextIcon,
@@ -19,12 +18,11 @@ import {
   SupabaseIcon,
   VercelIcon,
 } from "@/components/TechStackIcon";
-import ProjectCard from "@/components/ProjectCard";
 import ProjectMarquee from "@/components/ProjectMarquee";
-import ExperienceCard from "@/components/ExperienceCard";
 import AwardCard from "@/components/AwardCard";
 import WhatIDoSection from "@/components/WhatIDoSection";
 import ExperienceEducationTabs from "@/components/ExperienceEducationTabs";
+import AiModeResumeButton from "@/components/AiModeResumeButton";
 
 export default function Home() {
   const skills = [
@@ -213,36 +211,40 @@ export default function Home() {
   ];
 
   return (
-    // Outer container: Hapus padding dan gap di sini agar Hero bisa full-screen
-    <div className="bg-white selection:bg-brand-blue/30 relative min-h-screen overflow-hidden font-sans text-zinc-900 selection:text-zinc-900">
-
+    // Outer container: Primary Black Palette with crisp white canvas
+    <div className="bg-white selection:bg-zinc-950 selection:text-white relative min-h-screen overflow-hidden font-sans text-zinc-950">
 
       {/* 1. HERO SECTION (Memenuhi Layar 100vh) */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 text-center">
-        {/* Animated Badge */}
+      <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 text-center">
+        {/* Subtle Ambient Background Spotlight (Dark Neutral) */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(0,0,0,0.04),transparent)]" />
+
+        {/* Animated Status Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-8 rotate-[-2deg] rounded-full border border-zinc-200 bg-zinc-50 px-4 py-1.5 text-sm shadow-lg backdrop-blur-md"
+          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-zinc-200/90 bg-white/90 px-4 py-1.5 text-xs sm:text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-md transition-all hover:border-zinc-300"
         >
-          <span className="from-brand-blue to-brand-blue1 bg-gradient-to-r bg-clip-text font-medium text-transparent">
-            Available for new opportunities
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
+          <span>Available for new opportunities</span>
         </motion.div>
 
-        {/* Font Size: text-4xl di HP, text-6xl di Laptop */}
+        {/* Hero Title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="font-utama text-5xl font-extrabold tracking-tighter text-zinc-900 md:text-7xl lg:text-8xl"
+          className="font-utama text-5xl font-extrabold tracking-tighter text-zinc-950 md:text-7xl lg:text-8xl"
         >
-          Hi, I'm <br className="md:hidden" />
-          <span className="text-gradient-altan relative drop-shadow-lg">
+          Hi, I&apos;m <br className="md:hidden" />
+          <span className="text-gradient-altan relative drop-shadow-sm">
             Altan Putra
             <motion.span
-              className="from-brand-blue to-brand-blue1 absolute -bottom-2 left-0 h-[6px] w-full rounded-full bg-gradient-to-r opacity-50 blur-sm"
+              className="from-zinc-950 via-zinc-700 to-zinc-950 absolute -bottom-2 left-0 h-[4px] w-full rounded-full bg-gradient-to-r opacity-70 blur-[0.5px]"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -250,18 +252,18 @@ export default function Home() {
           </span>
         </motion.h1>
 
-        {/* Flex-col di HP agar tidak bertabrakan, Flex-row di Laptop */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="mt-8 flex flex-col items-center text-lg font-light text-zinc-500 md:flex-row md:text-2xl"
         >
-          <span className="text-brand-blue font-medium drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+          <span className="text-zinc-950 font-bold tracking-tight">
             Mobile Development
           </span>
-          <span className="mx-4 hidden text-zinc-600 md:inline">|</span>
-          <span className="text-brand-blue mt-2 font-medium drop-shadow-[0_0_10px_rgba(16,185,129,0.3)] md:mt-0">
+          <span className="mx-4 hidden text-zinc-300 md:inline">•</span>
+          <span className="text-zinc-950 font-bold tracking-tight mt-2 md:mt-0">
             Web Development
           </span>
         </motion.p>
@@ -269,36 +271,29 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-6 max-w-xl text-base text-balance text-zinc-500 md:text-lg"
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-5 max-w-xl text-base text-balance text-zinc-500 md:text-lg"
         >
           Crafting intuitive, performant, and premium digital experiences across
           mobile and web platforms.
         </motion.p>
 
-        {/* Tombol Get Started */}
+        {/* Start Exploring Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-          className="mt-10 flex w-full justify-center"
+          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
+          className="mt-9 flex w-full justify-center"
         >
           <a
             href="#about"
-            className="group relative flex w-full max-w-[220px] items-center justify-center gap-2 overflow-hidden rounded-full p-[2px] font-semibold transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] active:scale-95 md:w-fit"
+            className="group relative inline-flex items-center gap-2.5 rounded-full bg-zinc-950 px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-zinc-950/20 transition-all duration-300 hover:bg-zinc-800 hover:scale-[1.02] active:scale-95"
           >
-            <span className="from-brand-blue via-brand-blue1 to-brand-blue absolute inset-0 animate-[spin_4s_linear_infinite] bg-gradient-to-r" />
-
-            <span className="bg-white group-hover:bg-zinc-100 relative flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-[16px] transition-all duration-300">
-              <span className="relative z-10 text-zinc-900 font-medium">
-                Start Exploring
-              </span>
-
-              <RocketIcon
-                size={18}
-                className="text-brand-blue group-hover:text-brand-blue relative z-10 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
-            </span>
+            <span>Start Exploring</span>
+            <RocketIcon
+              size={18}
+              className="text-zinc-300 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
+            />
           </a>
         </motion.div>
 
@@ -309,13 +304,13 @@ export default function Home() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
         >
-          <span className="text-xs font-semibold tracking-widest text-zinc-500 uppercase">
+          <span className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">
             Scroll Down
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="from-brand-blue h-12 w-[1px] bg-gradient-to-b to-transparent"
+            className="from-zinc-950 h-12 w-[1.5px] bg-gradient-to-b to-transparent"
           />
         </motion.div>
       </section>
@@ -335,12 +330,12 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group relative h-48 w-48 shrink-0 md:h-64 md:w-64"
           >
-            {/* Static Glow Behind Avatar to save performance */}
-            <div className="from-brand-blue to-brand-blue absolute -inset-2 rounded-full bg-gradient-to-br opacity-30 blur-lg transition duration-1000 group-hover:opacity-60"></div>
-            <div className="from-brand-blue via-brand-blue to-brand-blue1 absolute -inset-1 rounded-full bg-gradient-to-br opacity-50 blur-md transition-all duration-700 group-hover:rotate-12 group-hover:scale-105 group-hover:opacity-100"></div>
+            {/* Elegant Obsidian Halo Behind Avatar */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-zinc-950/40 via-zinc-800/30 to-zinc-600/20 opacity-70 blur-xl transition duration-1000 group-hover:opacity-100 group-hover:scale-105"></div>
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-zinc-800 via-zinc-900 to-black opacity-60 blur-md transition-all duration-700 group-hover:rotate-12 group-hover:scale-105 group-hover:opacity-100"></div>
 
-            <div className="bg-white relative z-10 h-full w-full rounded-full p-[4px]">
-              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#1a1a1a]">
+            <div className="bg-white relative z-10 h-full w-full rounded-full p-[4px] shadow-xl">
+              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#18181b]">
                 <Image
                   src="/my-foto.jpeg"
                   alt="Altan Putra"
@@ -369,7 +364,7 @@ export default function Home() {
                 whileInView={{ width: 64 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="bg-brand-blue h-1.5 rounded-full"
+                className="bg-zinc-950 h-1.5 rounded-full"
               />
             </div>
 
@@ -378,19 +373,19 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="max-w-2xl text-[16px] leading-relaxed text-zinc-500 md:text-[18px]"
+              className="max-w-2xl text-[16px] leading-relaxed text-zinc-600 md:text-[18px]"
             >
               A passionate{" "}
-              <span className="font-semibold text-zinc-900 drop-shadow-md">
+              <span className="font-bold text-zinc-950 drop-shadow-sm">
                 Computer Science
               </span>{" "}
               student at{" "}
-              <span className="hover:text-brand-blue cursor-pointer font-semibold text-zinc-900 transition-colors">
+              <span className="hover:text-zinc-950 cursor-pointer font-bold text-zinc-900 underline decoration-zinc-300 underline-offset-4 transition-colors">
                 UDINUS Semarang
               </span>{" "}
               who crafts digital solutions through{" "}
-              <span className="text-brand-blue font-semibold">Mobile</span> and{" "}
-              <span className="text-brand-blue font-semibold">Web</span>{" "}
+              <span className="text-zinc-950 font-bold underline decoration-zinc-900/40 underline-offset-4">Mobile</span> and{" "}
+              <span className="text-zinc-950 font-bold underline decoration-zinc-900/40 underline-offset-4">Web</span>{" "}
               Development. I focus on exploring modern technologies to build
               highly functional, visually stunning, and responsive applications
               that leave a lasting impression.
@@ -403,45 +398,38 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start"
             >
-              {["React", "Next.js", "Flutter", "Laravel"].map((tech, i) => (
+              {["React", "Next.js", "Flutter", "Laravel"].map((tech) => (
                 <span
                   key={tech}
-                  className="text-brand-blue bg-brand-blue/10 border-brand-blue/20 hover:bg-brand-blue/20 cursor-default rounded-full border px-4 py-1.5 text-[14px] font-medium shadow-[0_0_15px_rgba(59,130,246,0.1)] transition-colors"
+                  className="text-zinc-800 bg-zinc-100 border-zinc-200 hover:bg-zinc-200 hover:border-zinc-300 cursor-default rounded-full border px-4 py-1.5 text-[14px] font-semibold transition-all shadow-sm"
                 >
                   {tech}
                 </span>
               ))}
 
-              <span className="mx-2 hidden text-zinc-600 md:inline">•</span>
-
-              <a
-                href="/CV_Altan_Assyfa_Naura_Putra_Updated.pdf"
-                download
-                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full p-[1px] text-[15px] font-semibold transition-all duration-300 active:scale-95 sm:w-fit"
-              >
-                <span className="from-brand-blue to-brand-blue absolute inset-0 bg-gradient-to-r opacity-50 transition-opacity group-hover:opacity-100 group-active:opacity-100" />
-                <span className="bg-white group-hover:bg-white/80 group-active:bg-white/80 relative flex w-full items-center justify-center gap-2 rounded-full px-5 py-2 transition-colors">
-                  <span className="text-zinc-900 group-hover:text-brand-blue group-active:text-brand-blue font-bold transition-colors">
-                    Download CV
-                  </span>
-                  <FileDown
-                    size={18}
-                    className="group-hover:text-brand-blue group-active:text-brand-blue text-zinc-900 transition-all duration-300 group-hover:translate-y-0.5 group-active:translate-y-0.5"
-                  />
-                </span>
-              </a>
+              <span className="mx-2 hidden text-zinc-400 md:inline">•</span>
+              <AiModeResumeButton label="Download CV" />
             </motion.div>
           </div>
         </motion.div>
 
         {/* Experiences & Educations Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-6"
         >
+          <div className="flex flex-col items-center gap-1.5 md:items-start">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Career & Learning
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+              Experience & Education
+            </h2>
+            <div className="h-1.5 w-24 rounded-full bg-zinc-950"></div>
+          </div>
 
           {/* Tab Layout for Experiences & Educations */}
           <ExperienceEducationTabs />
@@ -449,17 +437,21 @@ export default function Home() {
 
         {/* Awards & Achievements Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          id="awards"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-8 scroll-mt-24"
         >
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
+          <div className="flex flex-col items-center gap-1.5 md:items-start">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Recognition & Honors
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
               Awards & Achievements
             </h2>
-            <div className="h-1 w-20 rounded-full bg-brand-blue md:w-80"></div>
+            <div className="h-1.5 w-24 rounded-full bg-zinc-950"></div>
           </div>
 
           <div className="flex flex-col gap-10">
@@ -471,17 +463,20 @@ export default function Home() {
 
         {/* What I Do Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
-          className="mt-16 flex flex-col gap-10"
+          className="mt-6 flex flex-col gap-8"
         >
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
+          <div className="flex flex-col items-center gap-1.5 md:items-start">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Core Specialization
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
               What I Do
             </h2>
-            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-32"></div>
+            <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
           </div>
 
           <WhatIDoSection />
@@ -489,17 +484,20 @@ export default function Home() {
 
         {/* Tech Stack Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
           className="flex flex-col gap-6"
         >
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
+          <div className="flex flex-col items-center gap-1.5 md:items-start">
+            <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Ecosystem & Tools
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
               Tech Stack
             </h2>
-            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-50"></div>
+            <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
           </div>
 
           {/* Horizontal Scrolling Marquee */}
@@ -511,7 +509,7 @@ export default function Home() {
                   className="group flex flex-col items-center gap-4"
                   style={{ "--hover-color": skill.color } as React.CSSProperties}
                 >
-                  <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--hover-color)] group-hover:shadow-[0_10px_30px_-10px_var(--hover-color)]">
+                  <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[var(--hover-color)] group-hover:shadow-[0_10px_30px_-10px_var(--hover-color)]">
                     {skill.logo}
                   </div>
                   <h3 className="text-[15px] font-bold tracking-wide text-zinc-900 transition-colors duration-300 group-hover:text-[var(--hover-color)]">
@@ -525,22 +523,34 @@ export default function Home() {
 
         {/* My Project Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
           id="MyProjects"
-          className="flex flex-col gap-8 md:gap-12"
+          className="flex flex-col gap-8 md:gap-10 scroll-mt-24"
         >
-          <div className="flex flex-col items-center gap-1 md:items-start">
-            <h2 className="text-[28px] font-bold tracking-tight text-zinc-900 md:text-[32px]">
-              My Projects
-            </h2>
-            <div className="bg-brand-blue h-1 w-20 rounded-full md:w-50"></div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="flex flex-col items-center gap-1.5 md:items-start">
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+                Selected Work
+              </span>
+              <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+                Featured Projects
+              </h2>
+              <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
+            </div>
+
+            <Link
+              href="/AllProjects"
+              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 hover:text-zinc-600 transition-colors self-center sm:self-auto"
+            >
+              <span>View All Projects</span>
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
 
           <ProjectMarquee projects={projects} />
-
         </motion.div>
 
         <Footer />

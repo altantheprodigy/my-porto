@@ -3,15 +3,11 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import {
-  DartIcon,
   FigmaIcon,
   FlutterIcon,
   HiveIcon,
   LaravelIcon,
   MySqlIcon,
-  NextIcon,
-  PhpIcon,
-  TailWindIcon,
 } from "@/components/TechStackIcon";
 
 const Page = () => {
@@ -140,7 +136,7 @@ const Page = () => {
         <h1 className="text-[36px] font-bold tracking-tight text-zinc-900 md:text-[56px]">
           All Projects
         </h1>
-        <div className="bg-brand-blue h-1 w-24 rounded-full md:w-32"></div>
+        <div className="bg-zinc-950 h-1.5 w-24 rounded-full md:w-32"></div>
         <p className="mt-4 max-w-2xl text-[16px] leading-relaxed font-light text-zinc-500 md:text-[18px]">
           A deeper dive into all the mobile and web applications I have built.
           From concept and design to deployment.

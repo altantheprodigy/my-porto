@@ -3,29 +3,29 @@
 @theme {
   --font-utama: var(--font-poppins);
 
-  /* Solid Whites and Grays for Background */
-  --color-hitam-utama: #ffffff; /* Keeping variable name to avoid breaks, but mapped to white */
-  --color-border-nav: #e5e7eb;
+  /* Primary Deep Black & Neutral Slate Theme */
+  --color-hitam-utama: #09090b;
+  --color-border-nav: #e4e4e7;
 
-  /* Primary Blue Theme */
-  --color-brand-blue: #2563eb; /* Strong Blue */
-  --color-brand-green: #3b82f6; /* Map green to a lighter blue to keep things simple */
+  /* Primary Black Theme Colors */
+  --color-brand-blue: #09090b; /* Primary Pitch Black */
+  --color-brand-blue1: #27272a; /* Deep Charcoal */
+  --color-brand-green: #3f3f46;
 
-  --color-brand-blue1: #60a5fa;
   --color-bg-card: #ffffff;
-  --color-text-secondary: #6b7280;
-  --color-text-body: #4b5563;
-  --color-badge-bg: #eff6ff;
-  --color-badge-text: #1d4ed8;
+  --color-text-secondary: #71717a;
+  --color-text-body: #3f3f46;
+  --color-badge-bg: #f4f4f5;
+  --color-badge-text: #09090b;
 
-  --color-accent-blue: #2563eb;
-  --color-accent-green: #3b82f6;
+  --color-accent-blue: #18181b;
+  --color-accent-green: #27272a;
 
-  --bg-gradient-altan: linear-gradient(to right, #60a5fa, #2563eb);
+  --bg-gradient-altan: linear-gradient(135deg, #09090b 0%, #27272a 60%, #52525b 100%);
 }
 
 @utility text-gradient-altan {
-  background-image: linear-gradient(to right, #60a5fa, #2563eb);
+  background-image: linear-gradient(135deg, #09090b 0%, #27272a 55%, #71717a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -33,17 +33,67 @@
 
 @layer base {
   :root {
-    --background: #f9fafb; /* Light gray background */
-    --foreground: #111827; /* Dark text */
+    --background: #ffffff; /* Clean modern white canvas */
+    --foreground: #09090b; /* Deep black text */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
   }
 
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
     font-family: var(--font-utama), sans-serif;
   }
+
+  /* Sleek modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f4f4f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #a1a1aa;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #71717a;
+  }
 }
 
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes ai-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

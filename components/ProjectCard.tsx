@@ -30,10 +30,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop + Glassmorphism */
-    <div className="group hover:border-brand-blue/30 flex flex-col gap-6 rounded-3xl border border-zinc-200 bg-zinc-50 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] md:flex-row md:items-stretch md:gap-8 md:p-6">
+    <div className="group hover:border-zinc-400 flex flex-col gap-6 rounded-3xl border border-zinc-200 bg-zinc-50 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.08)] md:flex-row md:items-stretch md:gap-8 md:p-6">
       {/* Kotak Gambar */}
       {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
-      <div className="group-hover:shadow-brand-blue/10 w-full flex-1 overflow-hidden rounded-2xl bg-white/50 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
+      <div className="group-hover:shadow-zinc-950/5 w-full flex-1 overflow-hidden rounded-2xl bg-white/50 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
         <div className="relative aspect-video w-full overflow-hidden rounded-xl">
           <Image
             src={imageSrc}
@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={downloadLink}
             download={isDownload ? true : undefined}
             target={isDownload ? "_self" : "_blank"}
-            className="group bg-brand-blue text-white relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-4 py-3 text-[15px] font-semibold transition-all duration-300 hover:bg-brand-blue1 active:scale-95 md:w-fit md:text-[16px]"
+            className="group bg-zinc-950 text-white relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-[15px] font-semibold transition-all duration-300 hover:bg-zinc-800 active:scale-95 md:w-fit md:text-[16px] shadow-sm"
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
             <span className="relative z-10">{downloadText}</span>
