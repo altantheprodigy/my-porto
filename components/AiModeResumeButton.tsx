@@ -76,7 +76,7 @@ export default function AiModeResumeButton({
       />
 
       {/* 2. Solid Inner Button Body: keeps button center dark and clean */}
-      <div className="relative z-10 flex items-center gap-2 rounded-full border border-zinc-800/90 bg-zinc-950 px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-colors duration-200 group-hover:border-zinc-700/80">
+      <div className="relative z-10 flex items-center gap-1.5 sm:gap-2 rounded-full border border-zinc-800/90 bg-zinc-950 px-3.5 py-1.5 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-colors duration-200 group-hover:border-zinc-700/80">
         {showSparkles && (
           <Sparkles
             size={14}

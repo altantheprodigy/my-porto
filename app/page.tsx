@@ -421,11 +421,11 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="flex flex-col gap-6"
         >
-          <div className="flex flex-col items-center gap-1.5 md:items-start">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1.5">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
               Career & Learning
             </span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl text-center md:text-left">
               Experience & Education
             </h2>
             <div className="h-1.5 w-24 rounded-full bg-zinc-950"></div>
@@ -444,11 +444,11 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="flex flex-col gap-8 scroll-mt-24"
         >
-          <div className="flex flex-col items-center gap-1.5 md:items-start">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1.5">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
               Recognition & Honors
             </span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl text-center md:text-left">
               Awards & Achievements
             </h2>
             <div className="h-1.5 w-24 rounded-full bg-zinc-950"></div>
@@ -469,11 +469,11 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="mt-6 flex flex-col gap-8"
         >
-          <div className="flex flex-col items-center gap-1.5 md:items-start">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1.5">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
               Core Specialization
             </span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl text-center md:text-left">
               What I Do
             </h2>
             <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
@@ -490,11 +490,11 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="flex flex-col gap-6"
         >
-          <div className="flex flex-col items-center gap-1.5 md:items-start">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1.5">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
               Ecosystem & Tools
             </span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl text-center md:text-left">
               Tech Stack
             </h2>
             <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
@@ -531,11 +531,11 @@ export default function Home() {
           className="flex flex-col gap-8 md:gap-10 scroll-mt-24"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="flex flex-col items-center gap-1.5 md:items-start">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left gap-1.5">
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 Selected Work
               </span>
-              <h2 className="text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 md:text-4xl text-center md:text-left">
                 Featured Projects
               </h2>
               <div className="h-1.5 w-20 rounded-full bg-zinc-950"></div>
