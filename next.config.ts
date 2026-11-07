@@ -1,15 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Aktifkan kompresi gzip/brotli untuk response statis & dinamis
+  // Compression for static & dynamic responses
   compress: true,
 
-  // Optimasi gambar modern: konversi otomatis ke AVIF & WebP (menghemat ukuran gambar hingga 70-90%)
+  // Image optimization: auto conversion to AVIF & WebP
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // Cache 30 hari di edge CDN Vercel
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days cache on Vercel Edge
+  },
+
+  // Permanent 308 redirect from legacy /AllProjects route to standardized /projects
+  async redirects() {
+    return [
+      {
+        source: "/AllProjects",
+        destination: "/projects",
+        permanent: true,
+      },
+    ];
   },
 };
 

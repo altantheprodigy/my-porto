@@ -1,9 +1,11 @@
-import Image from "next/image";
-import { FileDown } from "lucide-react";
+"use client";
 
-// 1. PERBAIKAN: Tambahkan properti 'name' ke dalam interface
+import Image from "next/image";
+import { FileDown, ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import React from "react";
+
 interface TechStack {
-  name: string; // Menyimpan nama teknologi (misal: "Flutter", "Next.js")
+  name: string;
   logo: React.ReactNode;
 }
 
@@ -14,7 +16,8 @@ interface ProjectCardProps {
   imageSrc: string;
   downloadLink: string;
   downloadText?: string;
-  isDownload: boolean;
+  isDownload?: boolean;
+  actionType?: "live" | "download" | "github";
   techStacks: TechStack[];
 }
 
@@ -24,88 +27,109 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   imageSrc,
   downloadLink,
-  isDownload,
-  downloadText = "Download App",
+  isDownload = false,
+  downloadText,
+  actionType = isDownload ? "download" : "live",
   techStacks,
 }) => {
+  // Determine action button label and icon
+  const getActionConfig = () => {
+    if (actionType === "download" || isDownload) {
+      return {
+        label: downloadText || "Download APK",
+        icon: FileDown,
+        isExternal: false,
+      };
+    }
+    if (actionType === "github") {
+      return {
+        label: downloadText || "View Repository",
+        icon: Github,
+        isExternal: true,
+      };
+    }
+    return {
+      label: downloadText || "Live Demo",
+      icon: ExternalLink,
+      isExternal: true,
+    };
+  };
+
+  const actionConfig = getActionConfig();
+  const ActionIcon = actionConfig.icon;
+
   return (
-    /* 1. PERBAIKAN: flex-col untuk mobile, md:flex-row untuk desktop + Glassmorphism */
-    <div className="group hover:border-zinc-400 flex flex-col gap-6 rounded-3xl border border-zinc-200 bg-zinc-50 p-4 backdrop-blur-md transition-all duration-500 hover:bg-white hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.08)] md:flex-row md:items-stretch md:gap-8 md:p-6">
-      {/* Kotak Gambar */}
-      {/* 2. PERBAIKAN: Tambahkan w-full, dan sesuaikan min-h agar tidak terlalu tinggi di mobile */}
-      <div className="group-hover:shadow-zinc-950/5 w-full flex-1 overflow-hidden rounded-2xl bg-white/50 p-2 shadow-inner shadow-black/50 transition-shadow duration-500 md:p-3">
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+    <div className="group relative flex flex-col gap-6 rounded-[28px] border border-zinc-200/90 bg-white p-4.5 sm:p-6 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-zinc-300 hover:shadow-[0_16px_36px_-10px_rgba(0,0,0,0.08)] md:flex-row md:items-stretch md:gap-8">
+      {/* Media Box */}
+      <div className="relative w-full flex-1 overflow-hidden rounded-2xl border border-zinc-100 bg-zinc-100/80 p-2 shadow-inner md:p-2.5">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
           <Image
             src={imageSrc}
-            alt={`Preview Project ${title}`}
+            alt={`Preview of ${title}`}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 45vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       </div>
 
-      {/* Kotak Teks & Tombol */}
-      {/* 3. PERBAIKAN: Hapus padding vertikal py-2 di mobile agar lebih rapat */}
-      <div className="flex flex-[2] flex-col md:py-2">
-        <div className="flex flex-col gap-3 text-center md:text-left">
-          <p className="font-utama text-[14px] font-medium text-zinc-500 md:text-[15px]">
-            {category}
-          </p>
-          <h3 className="text-[20px] font-bold text-zinc-900 md:text-[24px]">
+      {/* Narrative & Actions */}
+      <div className="flex flex-[1.4] flex-col justify-between py-1">
+        <div className="flex flex-col gap-2.5 text-left">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 font-mono-code text-[11px] font-semibold text-zinc-600">
+              {category}
+            </span>
+          </div>
+
+          <h3 className="font-display text-xl font-bold tracking-tight text-zinc-950 sm:text-2xl">
             {title}
           </h3>
-          <p className="font-utama text-text-body line-clamp-4 text-[14px] leading-relaxed md:text-[15px]">
+
+          <p className="line-clamp-4 text-sm leading-relaxed text-zinc-600">
             {description}
           </p>
         </div>
 
-        {/* Konten Bawah */}
-        {/* 4. PERBAIKAN: justify-center di mobile, mt-auto untuk dorong ke bawah di desktop */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-auto md:justify-start md:pt-4">
+        {/* Bottom Actions & Tech Icons */}
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 pt-4">
           <a
             href={downloadLink}
-            download={isDownload ? true : undefined}
-            target={isDownload ? "_self" : "_blank"}
-            className="group bg-zinc-950 text-white relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-[15px] font-semibold transition-all duration-300 hover:bg-zinc-800 active:scale-95 md:w-fit md:text-[16px] shadow-sm"
+            download={actionConfig.isExternal ? undefined : true}
+            target={actionConfig.isExternal ? "_blank" : "_self"}
+            rel={actionConfig.isExternal ? "noopener noreferrer" : undefined}
+            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-xl bg-zinc-950 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all hover:bg-zinc-800 active:scale-95 focus-ring"
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-500 group-hover:translate-x-full"></div>
-            <span className="relative z-10">{downloadText}</span>
-            <FileDown
-              size={18}
-              className="relative z-10 transition-all duration-300 group-hover:translate-y-0.5 group-hover:animate-bounce"
-            />
+            <span>{actionConfig.label}</span>
+            <ActionIcon size={15} />
           </a>
 
-          {techStacks.length > 0 && (
-            <>
-              {/* Garis pemisah disembunyikan di mobile jika layout tombol penuh */}
-              <div className="hidden h-6 w-px bg-zinc-700 md:mx-2 md:block"></div>
-
-              <div className="flex flex-wrap justify-center gap-3">
+          {techStacks && techStacks.length > 0 && (
+            <div className="flex items-center gap-1.5">
+              <span className="font-mono-code text-[11px] font-semibold text-zinc-400 mr-1">
+                Tech:
+              </span>
+              <div className="flex items-center gap-1.5">
                 {techStacks.map((tech, index) => (
                   <div
                     key={index}
-                    className="group bg-white relative flex shrink-0 items-center justify-center rounded-xl px-3 py-3 transition-all duration-300 ease-out group-hover:rotate-6 hover:-translate-y-1"
+                    className="group/tech relative flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 p-1.5 shadow-xs transition-transform hover:scale-110 hover:bg-white"
                   >
-                    {/* Tooltip tetap berfungsi baik di desktop (hover) */}
-                    <span className="bg-white pointer-events-none absolute top-full left-1/2 z-20 mt-2 -translate-x-1/2 rounded-md px-2.5 py-1 text-[12px] font-semibold whitespace-nowrap text-zinc-900 opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 md:-top-8 md:mt-0 md:group-hover:-top-11">
+                    {/* Cohesive Dark Tooltip */}
+                    <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 rounded-md bg-zinc-950 px-2 py-1 font-mono-code text-[11px] font-semibold text-white opacity-0 shadow-lg transition-all duration-200 group-hover/tech:opacity-100">
                       {tech.name}
                       <svg
-                        className="absolute top-full left-0 h-2 w-full text-zinc-800"
-                        viewBox="0 0 255 255"
+                        className="absolute top-full left-1/2 -translate-x-1/2 h-1.5 w-3 text-zinc-950"
+                        viewBox="0 0 12 6"
                       >
-                        <polygon
-                          className="fill-current"
-                          points="0,0 127.5,127.5 255,0"
-                        />
+                        <polygon points="0,0 6,6 12,0" fill="currentColor" />
                       </svg>
                     </span>
                     {tech.logo}
                   </div>
                 ))}
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>

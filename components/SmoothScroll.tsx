@@ -16,6 +16,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       syncTouch: false,
     });
 
+    if (typeof window !== "undefined") {
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    }
+
     let animationFrameId: number;
 
     function raf(time: number) {
@@ -28,6 +32,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     return () => {
       cancelAnimationFrame(animationFrameId);
       lenis.destroy();
+      if (typeof window !== "undefined") {
+        delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      }
     };
   }, []);
 
