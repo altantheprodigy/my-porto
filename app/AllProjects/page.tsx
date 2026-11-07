@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
+import ProjectsPage from "../projects/page";
 
-export default function AllProjectsLegacyPage() {
-  redirect("/projects");
-}
+export default ProjectsPage;

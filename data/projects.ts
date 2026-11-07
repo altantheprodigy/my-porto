@@ -56,7 +56,7 @@ export const projectsData: Project[] = [
       "Digital consignment marketplace mobile app engineered for vocational school student businesses and community transactions.",
     description:
       "A comprehensive consignment marketplace application designed to facilitate student entrepreneurship and campus goods trading. Built with Flutter and Laravel REST APIs, featuring offline-first caching via Hive, transaction management, real-time catalog filtering, and authentication.",
-    imageSrc: "/preview_rusconsign.png",
+    imageSrc: "/RusConsign.png",
     link: "https://github.com/altantheprodigy/RusConsign.git",
     actionType: "github",
     actionText: "View Repository",
